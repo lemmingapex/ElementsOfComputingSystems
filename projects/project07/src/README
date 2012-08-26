@@ -1,0 +1,16 @@
+#####################################
+# Scott Wiedemann                   #
+# Project07 README                  #
+#####################################
+
+VM Translator Program in Python 2.7.*
+
+Example translator usage:
+
+>Translator.py <Prog.asm> | <Directory>
+
+OR
+
+>python Translator.py <Prog.asm> | <Directory>
+
+Translator.py will generate one corresponding .asm file for a .vm file, or for a directory containing .vm files

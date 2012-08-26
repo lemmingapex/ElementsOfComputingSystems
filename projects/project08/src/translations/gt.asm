@@ -1,0 +1,21 @@
+// gt
+@SP
+AM=M-1
+D=M
+@SP
+A=M-1
+A=M
+D=D-A
+@TRUE%%ID%%
+D;JLT
+(FALSE%%ID%%)
+@SP
+A=M-1
+M=0
+@EXIT%%ID%%
+0;JMP
+(TRUE%%ID%%)
+@SP
+A=M-1
+M=-1
+(EXIT%%ID%%)

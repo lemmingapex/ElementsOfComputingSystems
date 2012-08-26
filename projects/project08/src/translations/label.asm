@@ -1,0 +1,2 @@
+// label %%LABEL%%
+(%%LABEL%%)

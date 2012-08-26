@@ -1,0 +1,16 @@
+#####################################
+# Scott Wiedemann                   #
+# Project06 README                  #
+#####################################
+
+Assembler Program in Python 2.7.*
+
+Example assembler usage:
+
+>Assembler.py ./Prog.asm
+
+OR
+
+>python Assembler.py ./Prog.asm
+
+Assembler.py will generate file: ./Prog.hack

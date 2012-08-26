@@ -1,0 +1,171 @@
+/** Board class is responsible for:
+  1. drawing board based on input
+  2. finding a good size for each piece
+  3. determining the starting locations for each piece */
+class Board
+{
+  field int screenX, screenY;
+
+  /** Creates a new board based on programmer's input.  Also handles basic error checking.
+  input: 2 ints to represent size of board
+  output: this */
+  constructor Board new(int x,int y)
+  {
+    if (x > 513)
+    {
+      do Output.printString("Invalid x coorindate");
+      do Output.println();
+      do Sys.halt();
+    }
+    else
+    {
+      let screenX = x;
+    }
+
+    if (y > 257)
+    {
+      do Output.printString("Invalid x coorindate");
+      do Output.println();
+      do Sys.halt();
+    }
+    else
+    {
+      let screenY = y;
+    }
+
+    do Screen.clearScreen();
+    do Screen.setColor(true);
+
+    return this;
+  }
+
+  /** Deallocate memory */
+  method void dispose()
+  {
+    //do locations.dispose();
+    do Memory.deAlloc(this);
+    return;
+  }
+
+  /** Draws 4 lines to represent a 3x3 board
+  input: none
+  output: none */
+  method void drawBoard()
+  {
+    // draw vertical lines
+    // row = y; col = x
+    var int row,col;
+
+    let col = screenX/3;
+    do Screen.drawLine(col,0,col,screenX);
+
+    let col = col + (screenX/3);
+    do Screen.drawLine(col,0,col,screenX);
+
+    // draw horizontal lines
+    let row = screenY/3;
+    do Screen.drawLine(0,row,screenY,row);
+
+    let row = row + (screenY/3);
+    do Screen.drawLine(0,row,screenY,row);
+
+    return;
+  }
+
+  /** Determine a size for X's and O's to be 3/4 of each square
+  input: none
+  output: array ([0] = size in x; [1]= size in y) */
+  method Array pieceSize()
+  {
+    var int xDim, yDim;
+    var Array a;
+
+    let xDim = screenX/4;
+    let yDim = screenY/4;
+
+    let a = Array.new(2);
+    let a[0] = xDim;
+    let a[1] = yDim;
+
+    return a;
+  }
+
+  /** Determine all valid locations to draw pieces
+  input: none
+  output: array (each location is the upperleft hand corner) */
+  method Array pieceLocation()
+  {
+
+    var int x,y,startX,startY;
+    var Array locations;
+    let locations = Array.new(18);
+
+    let startX = 10;
+    let startY = 10;
+    //0
+    let x = startX;
+    let y = startY;
+    let locations[0] = x;
+    let locations[1] = y;
+    //     do Screen.drawPixel(x,y);
+
+    //1
+    let x = x + (screenX/3);
+    let locations[2] = x;
+    let locations[3] = y;
+    //     do Screen.drawPixel(x,y);
+
+    //2
+    let x = x + (screenX/3);
+    let locations[4] = x;
+    let locations[5] = y;
+    //     do Screen.drawPixel(x,y);
+    //     do Screen.drawCircle(x,y,3);
+
+    //3
+    let x = startX;
+    let y = y + (screenY/3);
+    let locations[6] = x;
+    let locations[7] = y;
+    //     do Screen.drawPixel(x,y);
+
+
+    //4
+    let x = x + (screenX/3);
+    let locations[8] = x;
+    let locations[9] = y;
+    //     do Screen.drawPixel(x,y);
+    //     do Screen.drawCircle(x,y,3);
+
+    //5
+    let x = x + (screenX/3);
+    let locations[10] = x;
+    let locations[11] = y;
+    //     do Screen.drawPixel(x,y);
+    //     do Screen.drawCircle(x,y,3);
+
+    //6
+    let x = startX;
+    let y = y + (screenY/3);
+    let locations[12] = x;
+    let locations[13] = y;
+    //     do Screen.drawPixel(x,y);
+    //     do Screen.drawCircle(x,y,3);
+
+    //7
+    let x = x + (screenX/3);
+    let locations[14] = x;
+    let locations[15] = y;
+    //     do Screen.drawPixel(x,y);
+    //     do Screen.drawCircle(x,y,3);
+
+    //8
+    let x = x + (screenX/3);
+    let locations[16] = x;
+    let locations[17] = y;
+    //     do Screen.drawPixel(x,y);
+//     do Screen.drawCircle(x,y,3);
+
+    return locations;
+  }
+}

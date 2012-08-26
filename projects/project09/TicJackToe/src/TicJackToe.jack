@@ -1,0 +1,321 @@
+/**
+ * The TicJackToe class implements a tic-tac-toe game.
+ */
+class TicJackToe {
+
+	// O, X
+	field char player;
+
+	// location of all moves on the board
+	field Array board;
+	
+	// location of last move on the board
+	field int lastIndex;
+	
+	// graphical board
+	field Board gBoard;
+
+	/** Constructs a new TicJackToe Game. */
+	constructor TicJackToe new() {
+		var int i;
+		let i=0;
+		let board = Array.new(9);
+		while(i<9) {
+			let board[i]=32;
+			let i=i+1;
+		}
+
+		// X goes first
+		let player = 88;
+
+		// new graphical board
+		let gBoard = Board.new(255,255);
+
+		return this;
+	}
+
+	/** Deallocates the object's memory. */
+	method void dispose() {
+		do Memory.deAlloc(this);
+		do gBoard.dispose();
+		return;
+	}
+
+	/** Draws the board to the screen. */
+	method void draw() {
+		var int row;
+		var int col;
+		var int mod;
+		var Shapes shape;
+		var Array s,l;
+
+	  let s = gBoard.pieceSize();
+	  let l = gBoard.pieceLocation();
+		
+
+		// map board struct to row, col
+		let row = lastIndex/3;
+		let row = row+1;
+
+		let mod = lastIndex/3;
+		let mod = 3*mod;
+		let col = lastIndex-mod;
+
+		let shape=Shapes.new(board[lastIndex], s, l);
+		do shape.draw(lastIndex);
+		
+		return;
+	}
+	
+	/* clear the input area */
+	method void clearInputArea()
+	{
+		do Output.moveCursor(0,32);
+		do Output.printString("          ");
+		do Output.moveCursor(1,32);
+		do Output.printString("          ");
+		do Output.moveCursor(2,32);
+		do Output.printString("          ");
+		do Output.moveCursor(22,32);
+		do Output.printString("                  ");
+		return;
+	}
+
+	/** Take input from keyboard, row and col. */
+	method void takeInput() {
+		var int row;
+		var int col;
+		var int mod;
+		var int index;
+		do Output.moveCursor(0,32);
+
+		do Output.printChar(player);
+		do Output.printString("'s turn");
+		do Output.println();
+
+		let index=-1;
+		// board[index]==X or O ask for input
+		while((board[index]=88) | (board[index]=79) | (index=-1)) {
+			let row=4;
+			while((row<1)|(row>3)) {
+				do Output.moveCursor(1,32);
+				let row=Keyboard.readInt("row:");
+				if((row<1)|(row>3)) {
+					do Output.moveCursor(22,32);
+					do Output.printString("Invaild row!");
+					do Output.println();
+				}
+			}
+
+			let col=4;
+			while((col<1)|(col>3)) {
+				do Output.moveCursor(2,32);
+				let col=Keyboard.readInt("col:");
+				if((col<1)|(col>3)) {
+					do Output.moveCursor(22,32);
+					do Output.printString("Invaild column!");
+					do Output.println();
+				}
+			}
+
+			let row = row-1;
+			let row = row*3;
+
+			let col = col-1;
+
+			// set the board[index]
+			let index = row+col;
+			if((board[index]=88) | (board[index]=79)) {
+				do Output.moveCursor(22,32);
+				do Output.printString("Invaild placement!");
+				do Output.moveCursor(1,32);
+				do Output.printString("          ");
+				do Output.moveCursor(2,32);
+				do Output.printString("          ");
+				do Output.println();
+			}
+		}
+		let lastIndex=index;
+		let board[index]=player;
+		return;
+	}
+
+	/** is the game over? */
+	method int over() {
+		var int i;
+		var int j;
+		var int count;
+		var int index;
+		var int row;
+		var int col;
+		let i=0;
+		let j=0;
+		let count=0;
+
+		// check rows
+		while(j<3) {
+			let count=0;
+			let i=0;
+			while(i<3) {
+				if(board[i+(j*3)]=88)
+				{
+					let count=count+1;
+				}
+				if(board[i+(j*3)]=79)
+				{
+					let count=count-1;
+				}
+				let i=i+1;
+			}
+			if((count=3) | (count=-3)) {
+				return count;
+			}
+			let j=j+1;
+		}
+
+		let i=0;
+		let j=0;
+		let count=0;
+
+		// check cols
+		while(j<3) {
+			let count=0;
+			let i=0;
+			while(i<3) {
+				if(board[j+(i*3)]=88)
+				{
+					let count=count+1;
+				}
+				if(board[j+(i*3)]=79)
+				{
+					let count=count-1;
+				}
+				let i=i+1;
+			}
+			if((count=3) | (count=-3)) {
+				return count;
+			}
+			let j=j+1;
+		}
+
+		let i=0;
+		let count=0;
+
+		// check lower diag
+		while(i<3) {
+			let row = i*3;
+			let col = i;
+			let index = row+col;
+
+			if(board[index]=88)
+			{
+				let count=count+1;
+			}
+			if(board[index]=79)
+			{
+				let count=count-1;
+			}
+			if((count=3) | (count=-3)) {
+				return count;
+			}
+			let i=i+1;
+		}
+
+		let i=0;
+		let count=0;
+
+		// check upper diag
+		while(i<3) {
+			let row = i*3;
+			let col = 2-i;
+			let index = row+col;
+
+			if(board[index]=88)
+			{
+				let count=count+1;
+			}
+			if(board[index]=79)
+			{
+				let count=count-1;
+			}
+			if((count=3) | (count=-3)) {
+				return count;
+			}
+			let i=i+1;
+		}
+
+		// else a cat
+		let i=0;
+		let count=0;
+
+		// check if board is full
+		while(i<9) {
+			if((board[i]=88) | (board[i]=79))
+			{
+				let count=count+1;
+			}
+			let i=i+1;
+		}
+		if(count=9) {
+			return count;
+		}
+
+		// game is not over
+		return 0;
+	}
+
+	/** Take input from keyboard, row and col. */
+	method void switchPlayer() {
+		if(player=88) {
+			let player=79;
+		}
+		else {
+			let player=88;
+		}
+		return;
+	}
+
+	/** Starts the game. */
+	method void run() {
+		do gBoard.drawBoard();
+		while ((over()<3) & (over()>-3)) {
+			do clearInputArea();
+			do draw();
+			do takeInput();
+			do switchPlayer();
+		}
+		do clearInputArea();
+		do draw();
+		do switchPlayer();
+		do Output.moveCursor(11,12);
+		if((over()=3) | (over()=-3)) {
+			do Output.printChar(player);
+			do Output.printString(" wins!");
+		}
+		else {
+			do Screen.clearScreen();
+			do Output.moveCursor(10,0);
+			do Output.printString("              .-o=o-.");
+			do Output.println();
+			do Output.printString("          ,  /=o=o=o=\ .--.");
+			do Output.println();
+			do Output.printString("         _|\\|=o=O=o=O=|    \\");
+			do Output.println();
+			do Output.printString("     __.'  a`\\=o=o=o=(`\\   /  ");
+			do Output.println();
+			do Output.printString("     '.   a 4/`|.-\"\"'`\\ \\ ;'`)   .---.");
+			do Output.println();
+			do Output.printString("       )   .'  /   .--'  |  /   / .-._)");
+			do Output.println();
+			do Output.printString("       '\\   _.'   /     /`-;__.' /");
+			do Output.println();
+			do Output.printString("         '--.____.\\    /--.___.-'");
+			do Output.println();
+			do Output.printString("                   `\"\"`");
+			do Output.println();
+		}
+		do Output.println();
+
+		return;
+	}
+}

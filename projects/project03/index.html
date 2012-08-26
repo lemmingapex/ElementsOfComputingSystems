@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1255">
+<meta name=ProgId content=FrontPage.Editor.Document>
+<meta name=Generator content="Microsoft FrontPage 4.0">
+<meta name=Originator content="Microsoft Word 9">
+<base target="_self">
+<link rel=File-List href="./index_files/filelist.xml">
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Shimon Schocken</o:Author>
+  <o:LastAuthor>Shimon Schocken</o:LastAuthor>
+  <o:Revision>5</o:Revision>
+  <o:TotalTime>8</o:TotalTime>
+  <o:Created>2003-09-30T17:14:00Z</o:Created>
+  <o:LastSaved>2003-09-30T17:27:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>457</o:Words>
+  <o:Characters>2606</o:Characters>
+  <o:Lines>21</o:Lines>
+  <o:Paragraphs>5</o:Paragraphs>
+  <o:CharactersWithSpaces>3200</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:935361002;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1503337742 999715724 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-start-at:0;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal><span style='color:#004080;
+mso-fareast-language:EN-US'><i><font color="#004080">The Elements of Computing&nbsp;
+Systems / Nisan &amp; Schocken</font> / www.idc.ac.il/tecs&nbsp;&nbsp; </i></span><b><span
+style='font-family:Arial;color:#004080;mso-fareast-language:EN-US'><br>
+<br>
+</span></b><strong><span style='font-size:18.0pt;font-family:Arial;color:#004080;
+mso-fareast-language:EN-US'>Project 3: Sequential Chips</span></strong></p>
+
+<p class=MsoBodyText style='text-align:justify'><b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>Objective:</span></b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'> <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:HE;layout-grid-mode:line">Build all the chips described
+in Chapter 3. The only building blocks that you can use are primitive </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:&quot;Courier New&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:
+HE" class="code">DFF</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:HE;layout-grid-mode:line"> gates, chips that you will
+build on top of them, and chips described in previous chapters.</span></span></p>
+
+<p class=MsoBodyText style='text-align:justify'><b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>Resources:</span></b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'> </span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">The
+only tool needed for this project is the hardware simulator supplied with
+the book. All the chips should be implemented in the HDL language specified in
+appendix A. As usual, for each chip we supply a skeletal </span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-fareast-language:EN-US" class="code">.hdl</span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"> program with a missing
+implementation part, a </span><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-fareast-language:EN-US" class="code">.tst</span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"> script file that tells the
+hardware simulator how to test it, and a </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-US" class="code">.cmp</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+compare file. Your job is to complete the missing implementation parts of all
+the </span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">supplied
+</span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-fareast-language:EN-US" class="code">.hdl</span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"> programs.<o:p>
+</o:p>
+</span><span
+style='mso-fareast-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='text-align:justify'><b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>Contract:</span></b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'> </span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">When loaded into the <a href="http://www1.idc.ac.il/tecs/software.html">Hardware Simulator</a>, your chip design (modified </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.hdl</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+program), tested on the supplied </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.tst</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+file, should produce the outputs listed in the supplied </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.cmp</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+file. If that is not the case, the simulator will let you know.<o:p>
+</o:p>
+</span><span style='mso-fareast-language:EN-US'><o:p></o:p></span></p>
+
+<table border=1 cellspacing=4 cellpadding=0 width=522 style='mso-cellspacing: 3.0pt; mso-padding-alt: 3.0pt 3.0pt 3.0pt 3.0pt; border: .75pt outset #EFCA85'>
+ <tr style='height:7.5pt'>
+  <td width=96 valign=top style='width: 71.7pt; background-color: #F1DCA9; background-repeat: repeat; background-attachment: scroll; border: .75pt inset #EFCA85; padding: 3.0pt; background-position: 0%' height="23">
+  <p class=MsoNormal style='mso-line-height-alt:7.5pt'><b><span style='font-size:
+  10.0pt;color:#00007D;mso-fareast-language:EN-US'>Chip (HDL)</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span></b></p>
+  </td>
+  <td width=192 valign=top style='background-color: #F1DCA9; background-repeat: repeat; background-attachment: scroll; border: .75pt inset #EFCA85; padding: 3.0pt; background-position: 0% 50%' height="23">
+  <p class=MsoNormal style='mso-line-height-alt:7.5pt'><b><span style='font-size:
+  10.0pt;color:#00007D;mso-fareast-language:EN-US'>Function</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span></b></p>
+  </td>
+  <td width=102 valign=top style='background-color: #F1DCA9; background-repeat: repeat; background-attachment: scroll; border: .75pt inset #EFCA85; padding: 3.0pt; background-position: 0% 50%' height="23">
+  <p class=MsoNormal style='mso-line-height-alt:7.5pt'><b><span style='font-size:
+  10.0pt;color:#00007D;mso-fareast-language:EN-US'>Test script</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span></b></p>
+  </td>
+  <td width=112 valign=top style='background-color: #F1DCA9; background-repeat: repeat; background-attachment: scroll; border: .75pt inset #EFCA85; padding: 3.0pt; background-position: 0% 50%' height="23">
+  <p class=MsoNormal style='mso-line-height-alt:7.5pt'><b><span style='font-size:
+  10.0pt;color:#00007D;mso-fareast-language:EN-US'>Compare file</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font face="Courier New" size="2">DFF</font>
+  </td>
+  <td width=192 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style="font-size: 10.0pt; mso-fareast-language: EN-US">Data Flip-Flop
+  (primitive)</span>
+  </td>
+  <td width=102 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  &nbsp;&nbsp;
+  </td>
+  <td width=112 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  &nbsp;&nbsp;
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="1/Bit.hdl"><font face="Courier New" size="2">Bit</font></a>
+  </td>
+  <td width=192 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style="font-size: 10.0pt; mso-fareast-language: EN-US">1-bit binary cell</span>
+  </td>
+  <td width=102 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font face="Courier New" size="2"><a href="1/Bit.tst">Bit.tst</a></font>
+  </td>
+  <td width=112 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font face="Courier New" size="2"><a href="1/Bit.cmp">Bit.cmp</a></font>
+  </td>
+ </tr>
+ <tr style='height:27.0pt'>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font face="Courier New" size="2"><a href="1/Register.hdl">Register</a></font>
+  </td>
+  <td width=192 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style="font-size: 10.0pt; mso-fareast-language: EN-US">16-bit Register</span>
+  </td>
+  <td width=102 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="1/Register.tst"><font face="Courier New" size="2">Register.tst</font></a>
+  </td>
+  <td width=112 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font face="Courier New" size="2"><a href="1/Register.cmp">Register.cmp</a></font><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font face="Courier New" size="2"><a href="1/RAM8.hdl">RAM8</a></font>
+  </td>
+  <td width=192 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style="font-size: 10.0pt; mso-fareast-language: EN-US">16-bit /
+  8-register memory</span>
+  </td>
+  <td width=102 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="1/RAM8.tst"><font face="Courier New" size="2">RAM8.tst</font></a>
+  </td>
+  <td width=112 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="1/RAM8.cmp"><font face="Courier New" size="2">RAM8.cmp</font><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </a>
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font face="Courier New" size="2"><a href="1/RAM64.hdl">RAM64</a></font>
+  </td>
+  <td width=192 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style="font-size: 10.0pt; mso-fareast-language: EN-US">16-bit /
+  64-register memory</span>
+  </td>
+  <td width=102 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="1/RAM64.tst"><font face="Courier New" size="2">RAM64.tst</font></a>
+  </td>
+  <td width=112 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="1/RAM64.cmp"><font face="Courier New" size="2">RAM64.cmp</font><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </a>
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font face="Courier New" size="2"><a href="2/RAM512.hdl">RAM512</a></font>
+  </td>
+  <td width=192 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style="font-size: 10.0pt; mso-fareast-language: EN-US">16-bit /
+  512-register memory</span>
+  </td>
+  <td width=102 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="2/RAM512.tst"><font face="Courier New" size="2">RAM512.tst</font></a>
+  </td>
+  <td width=112 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="2/RAM512.cmp"><font face="Courier New" size="2">RAM512.cmp</font><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </a>
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font face="Courier New" size="2"><a href="2/RAM4K.hdl">RAM4K</a></font>
+  </td>
+  <td width=192 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style="font-size: 10.0pt; mso-fareast-language: EN-US">16-bit /
+  4096-register memory</span>
+  </td>
+  <td width=102 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="2/RAM4K.tst"><font face="Courier New" size="2">RAM4K.tst</font></a>
+  </td>
+  <td width=112 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="2/RAM4K.cmp"><font face="Courier New" size="2">RAM4K.cmp</font><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </a>
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font face="Courier New" size="2"><a href="2/RAM16K.hdl">RAM16K</a></font>
+  </td>
+  <td width=192 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style="font-size: 10.0pt; mso-fareast-language: EN-US">16-bit /
+  16384-register memory</span>
+  </td>
+  <td width=102 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="2/RAM16K.tst"><font face="Courier New" size="2">RAM16K.tst</font></a>
+  </td>
+  <td width=112 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="2/RAM16K.cmp"><font face="Courier New" size="2">RAM16K.cmp</font><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </a>
+  </td>
+ </tr>
+ <tr style='height:27.0pt'>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font face="Courier New" size="2"><a href="1/PC.hdl">PC</a></font>
+  </td>
+  <td width=192 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style="font-size: 10.0pt; mso-fareast-language: EN-US">16-bit Program
+  Counter</span>
+  </td>
+  <td width=102 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="1/PC.tst"><font face="Courier New" size="2">PC.tst</font></a>
+  </td>
+  <td width=112 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="1/PC.cmp"><font face="Courier New" size="2">PC.cmp</font><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </a>
+  </td>
+ </tr>
+</table>
+
+<p class="MsoBodyText" style="text-align:justify"><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: HE; layout-grid-mode: line"><b>The
+Data Flip-Flop (DFF) gate</b> is considered primitive and thus there is no need to
+build it: when the simulator encounters a DFF gate in an HDL program, </span><span style='mso-fareast-language:EN-US;layout-grid-mode:
+line'>it automatically invokes the </span><span style='mso-fareast-language: EN-US; layout-grid-mode: line'>built-in
+</span><span style='mso-fareast-language: EN-US; font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman' class="code">tools/builtInChips/DFF.hdl</span><span style='mso-fareast-language:EN-US;layout-grid-mode:
+line'> implementation.</span></p>
+<p class="MsoBodyText" style="text-align:justify"><b><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">The directory structure of
+this project:</span></b><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+</span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">When constructing RAM chips
+from smaller RAM chips, we recommend using built-in versions of the latter.
+Otherwise, the simulator may run very slowly or even out of (real) memory space,
+since large RAM chips contain tens of thousands of lower level chips, and all
+these chips are kept in memory (as software objects) by the simulator. For this
+reason, we have </span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">placed
+the </span><span style="font-size: 10.0pt; mso-fareast-language: EN-US; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">RAM512.hdl</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">, </span><span style="font-size: 10.0pt; mso-fareast-language: EN-US; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">RAM4K.hdl</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">, and </span><span style="font-size: 10.0pt; mso-fareast-language: EN-US; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">RAM16K.hd<span style="font-size: 10.0pt; mso-fareast-language: EN-US; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman">l </span></span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"> programs in a separate directory. </span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line"><o:p>
+</o:p>
+ This way, the recursive descent construction of the </span><span style="font-size: 10.0pt; mso-fareast-language: EN-US; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code"> RAM4K</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line"> and
+</span><span style="font-size: 10.0pt; mso-fareast-language: EN-US; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code"> RAM16K</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line"> chips stops
+with the </span><span style="font-size: 10.0pt; mso-fareast-language: EN-US; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code"> RAM512</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line"> chip,
+while the lower-level chips from which the </span><span style="font-size: 10.0pt; mso-fareast-language: EN-US; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code"> RAM512</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+is made are treated as built-in (since the simulator does not find them in this
+directory).</span></p>
+
+<p class=MsoBodyText style='text-align:justify;mso-outline-level:1'><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'><b>Steps:</b></span><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>  </span><span
+style='mso-fareast-language:EN-US;layout-grid-mode:line'>We recommend proceeding
+in the following order:<u1:p>  &nbsp;</span></p>
+
+<p class=MsoBodyText style='text-align: justify; mso-outline-level: 1; line-height: 100%; margin-top: 6; margin-bottom: 0'><![if !supportLists]><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>0.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='mso-fareast-language:EN-US;layout-grid-mode:
+line'>The hardware simulator needed for this project is available in the
+<i>tools</i>  directory of the book’s software suite;<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='text-align: justify; text-indent: -18.0pt; mso-list: l0 level1 lfo1; tab-stops: list 18.0pt; line-height: 100%; margin-left: 18.0pt; margin-top: 6; margin-bottom: 0'><![if !supportLists]><span
+style='mso-fareast-language:EN-US;layout-grid-mode:line'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='mso-fareast-language:EN-US;layout-grid-mode:line'>Read Appendix A (<i>Hardware
+Description Language</i>), focusing on sections 6 and 7;<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='text-align: justify; text-indent: -18.0pt; mso-list: l0 level1 lfo1; tab-stops: list 18.0pt; line-height: 100%; margin-left: 18.0pt; margin-top: 6; margin-bottom: 0'><![if !supportLists]><span
+style='mso-fareast-language:EN-US;layout-grid-mode:line'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='mso-fareast-language:EN-US;layout-grid-mode:line'>Go through the <i>Hardware
+Simulator Tutorial </i>, focusing on parts IV and V;</span></p>
+
+<p class=MsoBodyText style='text-align: justify; text-indent: -18.0pt; mso-list: l0 level1 lfo1; tab-stops: list 18.0pt; line-height: 100%; margin-left: 18.0pt; margin-top: 6; margin-bottom: 0'><span style="mso-fareast-language: EN-US; layout-grid-mode: line">3.&nbsp;&nbsp;
+<span style="mso-fareast-language:EN-US;layout-grid-mode:
+line">Create a directory named </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">projects/03</span>
+<span style="mso-fareast-language:EN-US;layout-grid-mode:
+line">on </span><span style="mso-fareast-language:EN-US;layout-grid-mode: 
+line">your computer and extract <a href="project%2003.zip">project 03.zip</a> to it
+</span></span><span style="mso-fareast-language:EN-US;layout-grid-mode:
+line">(while preserving the directory structure embedded in the zip file).&nbsp;
+</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line"><span style="mso-fareast-language:EN-US;layout-grid-mode: 
+line">Build and simulate all the specified </span>chips.</span></p>
+
+<p class=MsoBodyText style='text-align: justify; text-indent: -18.0pt; mso-list: l0 level1 lfo1; tab-stops: list 18.0pt; line-height: 100%; margin-left: 18.0pt; margin-top: 6; margin-bottom: 0'><span
+style='mso-fareast-language:EN-US'><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

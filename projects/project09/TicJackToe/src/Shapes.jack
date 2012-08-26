@@ -1,0 +1,117 @@
+/** Responsible for drawing an 'X' or an 'O' at a given location */
+class Shapes
+{
+  field char player;
+  field int sizeX, sizeY;
+  field Array locations;
+
+  /** Create a new shape (ie. player) and the max size of the shape
+  inputs: the player piece (char), max size (Array)
+  output: self-reference
+  */
+  constructor Shapes new(char p, Array s, Array l)
+  {
+    let player = p;
+    let sizeX = s[0];
+    let sizeY = s[1];
+    let locations=l;
+
+    return this;
+  }
+
+  /** Deallocate memory
+  input: none
+  output: none
+  */
+  method void dispose()
+  {
+    do locations.dispose();
+    do Memory.deAlloc(this);
+    return;
+  }
+
+  /** test method */
+  method void print()
+  {
+    do Output.printString("oh yeahh....");
+    do Output.println();
+
+    return;
+  }
+
+  /** The main drawing method.  Calls the necessary method to draw the proper piece.
+  inputs: player (char), chosen location (int)
+  output: none
+  */
+  method void draw(int spotIndex)
+  {
+    var int index;
+    let index = (2*spotIndex);
+
+    if (player = 88)
+    {
+      do drawX(locations[index], locations[index+1]);
+    }
+
+    if (player = 79)
+    {
+      do drawO(locations[index], locations[index+1]);
+    }
+
+    return;
+  }
+
+  /** Draw an 'X' at the specified location
+  input:none
+  output:none
+  */
+  method void drawX(int x,int y)
+  {
+    do Screen.setColor(true);
+    do Screen.drawLine(x,y,x+sizeX,y+sizeY);
+    do Screen.drawLine(x+sizeX,y,x,y+sizeY);
+
+    return;
+  }
+
+  /** Draw an 'O' at the specified location
+  input:none
+  output:none
+  */
+  method void drawO(int x, int y)
+  {
+   var int rad, newX, newY;
+
+   let newX = x + (sizeX/2);
+   let newY = y + (sizeY/2);
+
+   if (sizeX < sizeY)
+   {
+     let rad = (sizeX/2);
+   }
+
+   else
+   {
+     let rad = (sizeY/2);
+   }
+
+   if (rad > 181)
+   {
+    let rad = 180;
+   }
+
+
+   do Screen.setColor(true);
+//    do Output.printInt(rad);
+//    do Output.println();
+//    do Output.printInt(newX);
+//    do Output.println();
+//    do Output.printInt(newY);
+   do Screen.drawCircle(newX,newY,rad);
+
+   // is setting color more than once causing problems?
+   do Screen.setColor(false);
+   do Screen.drawCircle(newX,newY,rad-2);
+   return;
+  }
+}

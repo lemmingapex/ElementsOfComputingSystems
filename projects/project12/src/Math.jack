@@ -1,0 +1,107 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/12/Math.jack
+
+/**
+ * A basic math library.
+ */
+class Math {
+
+	/** Initializes the library. */
+	function void init() {
+		return;
+	}
+
+	/** Returns the absolute value of x. */
+	function int abs(int x) {
+		if(x < 0) {
+			return -x;
+		}
+		return x;
+	}
+
+	/** Returns the product of x and y. */
+	function int multiply(int x, int y) {
+		var int sum, nx, ny;
+		var int shiftedX;
+		var int j;
+		var int twoExp;
+
+		let ny = Math.abs(y);
+		let nx = Math.abs(x);
+		let sum = 0;
+		let shiftedX = nx;
+		let j = 0;
+		let twoExp = 1;
+
+		while(j < 16) {
+			if((ny & twoExp) > 0) {
+				let sum = sum + shiftedX;
+			}
+			let shiftedX = shiftedX + shiftedX;
+			let twoExp = twoExp + twoExp;
+			let j = j+1;
+		}
+		return sum;
+	}
+
+	/** Returns the integer part of x/y.
+	    where x>=0 and y>0.              */
+	function int divide(int x, int y) {
+		var int q, nx, ny;
+
+		let nx=Math.abs(x);
+		let ny=Math.abs(y);
+
+		if(ny>nx) {
+			return 0;
+		}
+
+		let q = Math.divide(nx, 2*ny);
+
+		if((nx-(2*q*ny))<ny) {
+			if((x<0 & y>0)|(x>0 & y<0)) {
+				let q = -q;
+			}
+			return 2*q;
+		}
+		else
+		{
+			if((x<0 & y>0)|(x>0 & y<0)) {
+				let q = -q;
+			}
+			return (2*q)+1;
+		}
+	}
+
+	/** Returns the integer part of the square root of x. */
+	function int sqrt(int x) {
+		var int j, y;
+		let j=256;
+		let y=0;
+		while(j>0) {
+			if(~(((y+j)*(y+j))>x) & ((y+j)*(y+j))>0){
+				let y=y+j;
+			}
+			let j=j/2;
+		}
+		return y;
+	}
+
+	/** Returns the greater number. */
+	function int max(int a, int b) {
+		if(a > b) {
+			return a;
+		}
+		return b;
+	}
+
+	/** Returns the smaller number. */
+	function int min(int a, int b) {
+		if(a < b) {
+			return a;
+		}
+		return b;
+	}
+}

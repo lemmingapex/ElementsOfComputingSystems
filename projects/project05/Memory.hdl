@@ -1,0 +1,58 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/05/Memory.hdl
+
+/**
+ * The complete address space of the computer's memory,
+ * including RAM and memory mapped I/O. 
+ * The chip facilitates read and write operations, as follows:
+ *     Read:  out(t) = Memory[address(t)](t)
+ *     Write: If load(t-1) then Memory[address(t-1)](t) = in(t-1)
+ * In words: the chip always outputs the value stored at the memory 
+ * location specified by address. If load=1, the in value is loaded 
+ * into the memory location specified by address.  This value becomes 
+ * available through the out output starting from the next time step.
+ * Address space rules:
+ * Only the upper 16K+8K+1 words of the Memory chip are used. 
+ * Access to address>0x6000 is invalid. Access to any address in 
+ * the range 0x4000-0x5FFF results in accessing the screen memory 
+ * map. Access to address 0x6000 results in accessing the keyboard 
+ * memory map. The behavior in these addresses is described in the 
+ * Screen and Keyboard chip specifications.
+ */
+
+CHIP Memory {
+
+    IN  in[16], load, address[15];
+    OUT out[16];
+
+    PARTS:
+    // bits at index 13 and 14 can tell us where we are in memory
+    // if 14 == 1 then check ram
+    Not(in=address[14], out=checkRAM);
+
+    And(a=checkRAM, b=load, out=loadRAM);
+    RAM16K(in=in, load=loadRAM, address[0..13]=address[0..13], out=outRAM);
+
+    // the screen at 0x4000 to 0x5FFF corresponds to bit 13 being 0, and bit 14 being 1
+    Not(in=address[13], out=NOT13);
+    And(a=NOT13, b=address[14], out=checkSCREEN);
+
+    And(a=checkSCREEN, b=load, out=loadSCREEN);
+    Screen(in=in, load=loadSCREEN, address[0..12]=address[0..12], out=outSCREEN);
+
+    // the keyboard at 0x6000 corresponds to bit 13 being 1 and bit 14 being 1 (And)
+    And(a=address[13], b=address[14], out=loadKEYBOARD);
+    Keyboard(out=outKEYBOARD);
+
+    // get the right output
+    Mux16(a=outSCREEN, b=outKEYBOARD, sel=address[13], out=outSCREENORoutKEYBOARD);
+    Mux16(a=outSCREENORoutKEYBOARD, b=outRAM, sel=checkRAM, out=out);
+}
+
+
+
+
+
+

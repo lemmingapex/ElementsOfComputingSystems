@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1255">
+<meta name=ProgId content=FrontPage.Editor.Document>
+<meta name=Generator content="Microsoft FrontPage 6.0">
+<meta name=Originator content="Microsoft Word 9">
+<base target="_self">
+<link rel=File-List href="./index_files/filelist.xml">
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Shimon Schocken</o:Author>
+  <o:LastAuthor>Shimon Schocken</o:LastAuthor>
+  <o:Revision>5</o:Revision>
+  <o:TotalTime>8</o:TotalTime>
+  <o:Created>2003-09-30T17:14:00Z</o:Created>
+  <o:LastSaved>2003-09-30T17:27:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>457</o:Words>
+  <o:Characters>2606</o:Characters>
+  <o:Lines>21</o:Lines>
+  <o:Paragraphs>5</o:Paragraphs>
+  <o:CharactersWithSpaces>3200</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:935361002;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1503337742 999715724 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-start-at:0;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal>
+<font color="#004080"><i>The Elements of Computing&nbsp; Systems </i>/ <i>Nisan
+&amp; Schocken</i></font><span style='color:#004080;
+mso-fareast-language:EN-US'><i> </i>/ www.idc.ac.il/tecs</span><span style='color:#004080;
+mso-fareast-language:EN-US'><i>&nbsp;&nbsp; </i></span><b><span
+style='font-family:Arial;color:#004080;mso-fareast-language:EN-US'><br>
+<br>
+</span></b><strong><span style='font-size:18.0pt;font-family:Arial;color:#004080;
+mso-fareast-language:EN-US'>Project 0: Getting Started</span></strong></p>
+
+</div>
+
+<p class="MsoBodyText" style="text-align:justify"><b><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">Objective:</span></b><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+ Learn the hardware simulator environment, and experiment with some built-in
+chips.
+<o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="text-align:justify"><b><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">Contract:</span></b><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+ This optional &quot;project&quot; is a self-study exercise.&nbsp; You don't have to
+build or hand-in anything, but rather get acquainted </span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">with
+the concepts of <i>chip testing</i> and <i>hardware simulation</i>.</span></p>
+
+<p class="MsoBodyText" style="text-align:justify;mso-outline-level:1"><strong><font color="#004080" face="Arial" size="3">Steps</font></strong><o:p>
+</p>
+<p class="MsoBodyText" style="text-align: justify; line-height: 100%; margin-top: 6; margin-bottom: 0"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">0:
+Download and install the TECS software suite (see the <A HREF="http://www1.idc.ac.il/tecs/software.html">Software section</A> of the TECS web site) on your computer.</span></p>
+
+<p class="MsoBodyText" style="text-align: justify; line-height: 100%; margin-top: 6; margin-bottom: 0"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">1:
+Read Chapter 1 of the book.</span></p>
+
+<p class="MsoBodyText" style="text-align: justify; line-height: 100%; margin-top: 6; margin-bottom: 0"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">2.
+Go through parts I-II-III of the Hardware Simulator Tutorial (see the <A HREF="http://www1.idc.ac.il/tecs/plan.html">Study Plan Section</A> of the TECS web site).</span></p>
+
+<p class="MsoBodyText" style="text-align: justify; line-height: 100%; margin-top: 6; margin-bottom: 0"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">3.
+</span><span style="LAYOUT-GRID-MODE: line; mso-fareast-language: EN-US">Create
+a directory named </span><span class="code" style="FONT-SIZE: 10pt; FONT-FAMILY: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman">
+projects/00
+</span><span style="layout-grid-mode: line; mso-fareast-language: EN-US">on your
+co</span><span style="LAYOUT-GRID-MODE: line; mso-fareast-language: EN-US">mputer,
+and extract <a href="project%2000.zip">project 00.zip</a> into it.</span></p>
+
+<p class="MsoBodyText" style="text-align: justify; line-height: 100%; margin-top: 6; margin-bottom: 0"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">4.
+Invoke the hardware simulator (which is now installed on your computer), load
+one of the </span><span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code">.tst</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">
+test scripts listed below, and experiment with the chip.</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">&nbsp;</span></p>
+
+<p class="MsoBodyText" style="text-align:justify"><font color="#004080" face="Arial" size="3"><strong>The
+Chips </strong></font>(with which you are invited&nbsp; to play)</p>
+
+<table border="1" width="544" cellspacing="4" cellpadding="4" bordercolor="#EFCA85">
+  <tr>
+    <td width="111" valign="top" align="left" height="10" bgcolor="#F1DCA9"><font face="Times New Roman" color="#00007D" size="2">Chip
+      name</font></td>
+    <td width="232" valign="top" align="left" height="10" bgcolor="#F1DCA9"><font face="Times New Roman" color="#00007D" size="2">Function</font></td>
+    <td width="129" valign="top" align="left" height="10" bgcolor="#F1DCA9"><font face="Times New Roman" color="#00007D" size="2">Test
+      scripts</font></td>
+    <td width="230" valign="top" align="left" height="10" bgcolor="#F1DCA9"><font face="Times New Roman" color="#00007D" size="2">Compare
+      files</font></td>
+  </tr>
+  <tr>
+    <td width="111" valign="top" align="left" height="36">
+      <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2">And</font></p>
+      <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2">Mux8Way16</font>
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2">Register</font>
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2">RAM8</font>
+    </td>
+    <td width="232" valign="top" align="left" height="36">
+      <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font size="2" face="Times New Roman">And
+      gate</font></p>
+      <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Times New Roman" size="2">16-bit
+      8-way multiplexor</font></p>
+      <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Times New Roman" size="2">16-bit
+      register</font></p>
+      <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Times New Roman" size="2">8-register
+      RAM</font></p>
+    </td>
+    <td width="129" valign="top" align="left" height="36">
+      <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2"><a href="And.tst" target="_self">And.tst</a></font></p>
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2"><a href="Mux8Way16.tst" target="_self">Mux8Way16.tst</a></font><p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2"><a href="Register.tst" target="_self">Register.tst</a></font><p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2"><a href="RAM8.tst" target="_self">RAM8.tst</a></font>
+    </td>
+    <td width="230" valign="top" align="left" height="36">
+      <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2"><a href="And.cmp" target="_self">And.cmp</a></font></p>
+      <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2"><a href="Mux8Way16.cmp" target="_self">Mux8Way16.cmp</a></font><p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2"><a href="Register.cmp" target="_self">Register.cmp</a></font><p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2"><a href="RAM8.cmp" target="_self">RAM8.cmp</a></font>
+    </td>
+  </tr>
+</table>
+
+<p class="MsoBodyText" style="text-align:justify"><strong><font color="#004080" face="Arial" size="3">How
+to experiment with the chips</font></strong></p>
+
+<p class="MsoBodyText" style="text-align:justify">What you see above is a
+selection of some illustrative chips, designed to demonstrate the hardware simulation
+process.&nbsp; Since the purpose of this exercise is to play with chips
+rather than build them, you should work with their <i> built-in versions</i>.</p>
+
+<p class="MsoBodyText" style="text-align:justify">Note that the <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code">And</span>
+and <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code">Mux8Way16</span>
+chips are combinational, and the <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code">Register</span>
+and <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code">RAM8</span>
+chips are sequential (clock-dependent).&nbsp; Therefore the latter two chips
+will make sense only after you read Chapter 3, and in preparation for Project
+3.&nbsp;</p>
+
+<p class="MsoBodyText" style="text-align:justify">To load a built-in chip into
+the hardware simulator, click
+the chip icon or select &quot;load chip&quot; from the File menu.&nbsp; Then
+navigate to the <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code">tools/builtInChips</span> 
+directory and&nbsp; select the chip
+file name from there.</p>
+
+<p class="MsoBodyText" style="text-align:justify">After the chip is loaded into
+the simulator, you can put different values in
+the chip's input pins, click the
+&quot;Eval&quot; icon, and inspect the results.&nbsp; (If you are playing with a
+clocked chip rather than a combinational chip, you have to use
+&quot;TickTock&quot; instead of &quot;Eval&quot;).</p>
+
+<p class="MsoBodyText" style="text-align:justify">You will notice that some
+built-in chips, e.g. <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code">Register</span>
+and <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code">RAM8</span>, have a GUI.&nbsp; This GUI enables testing these chips visually.</p>
+
+<p class="MsoBodyText" style="text-align:justify">At some point, you can load
+the chip's test script (<span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code">.tst</span> file), and run it.&nbsp; This will show you exactly
+what type of behavior is expected from the chip.&nbsp; Needless to say, this
+knowledge is nice to have before you actually set out to build the chip in
+HDL.&nbsp;</p>
+
+<p class="MsoBodyText" style="text-align:justify"><strong><font color="#004080" face="Arial" size="3">What
+exactly is a built-in chip?</font></strong></p>
+
+<p class="MsoBodyText" style="text-align:justify">The activity
+described in this project is
+sometimes called &quot;behavioral simulation&quot; -- experimenting&nbsp; with
+the chip's functionality.&nbsp; For this purpose,
+there's no need to create a gate logic implementation of the chip.&nbsp;
+Instead, one can implement the chip logic using any other means, e.g. Java.&nbsp;And
+that's precisely what our built-in chips are -- Java classes that the hardware
+simulator is programmed to use each time it does not find an <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code"> .hdl</span> file in the
+current directory.</p>
+
+<p class="MsoBodyText" style="text-align:justify"><strong><font color="#004080" face="Arial" size="3">The
+next step</font></strong></p>
+
+<p class="MsoBodyText" style="text-align: justify">Every chip that you will be
+asked to build in this course is accompanied by <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code"> .tst</span> and <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code"> .cmp</span> files.&nbsp;
+Therefore, you never have to guess what the chip is supposed to do -- we supply
+an executable definition of this contract.&nbsp; In addition, for each chip we
+supply a
+basic <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code"> .hdl</span> file that you are supposed to extend into a working HDL chip
+definition.&nbsp;</p>
+<p class="MsoBodyText" style="text-align: justify"><b>Tip:</b>
+almost every chip that you will be asked to build has a pre-defined, built-in
+version.&nbsp; Therefore, if you want to experiment with the a chip before you
+set out to build it, simply load the respective <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code">.tst</span>
+script into the hardware simulator and start the simulation.&nbsp; Since a typical <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code"> .tst</span> file begins with a command that tells
+the simulator to load the chip, the simulator will look for the <span style="font-size: 10pt; font-family: Courier New; mso-bidi-font-size: 12.0pt; mso-bidi-font-family: Times New Roman" class="code"> .hdl</span>
+file in the current directory, will
+not find it, and then open the built-in version of the chip instead.&nbsp; At
+this point you can experiment with the chip's functionality, exactly like you did
+in this project.</p>
+<p class="MsoBodyText" style="text-align: justify">&nbsp;</p>
+<p class="MsoBodyText" style="text-align: justify">&nbsp;</p>
+<p class="MsoBodyText" style="text-align:justify">&nbsp;</p>
+
+</body>
+
+</html>

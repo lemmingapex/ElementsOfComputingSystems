@@ -1,0 +1,60 @@
+@24575
+D=A
+@screenend
+M=D
+
+(KEYPRESSED)
+	@KBD
+	D=M
+	@NOTKEYPRESSED
+	D;JEQ
+
+	@SCREEN
+	D=A
+	@SCREENINDEX
+	M=D	
+
+	// color screen black
+	(BLACK)
+		@SCREENINDEX
+		A=M
+		M=-1
+		@SCREENINDEX
+		M=M+1
+	@SCREENINDEX
+	D=M
+	@screenend
+	D=M-D
+	@BLACK
+	D;JGE
+
+@KEYPRESSED
+0;JMP
+
+(NOTKEYPRESSED)
+	@KBD
+	D=M
+	@KEYPRESSED
+	D;JNE
+
+	@SCREEN
+	D=A
+	@SCREENINDEX
+	M=D
+
+	// color screen white
+	(WHITE)
+		@SCREENINDEX
+		A=M
+		M=0
+		@SCREENINDEX
+		M=M+1
+	@SCREENINDEX
+	D=M
+	@screenend
+	D=M-D
+	@WHITE
+	D;JGE
+
+@NOTKEYPRESSED
+0;JMP

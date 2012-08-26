@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1255">
+<META content="Microsoft FrontPage 4.0" name=GENERATOR>
+<base target="_self">
+</HEAD>
+<BODY>
+
+<p class=MsoNormal><font color="#004080"><i>The Elements of Computing&nbsp;
+Systems </i>/ <i>Nisan &amp; Schocken</i></font><span style="color:#004080;
+mso-fareast-language:EN-US"><i> </i>/ www.idc.ac.il/tecs</span><span style='color:#004080;
+mso-fareast-language:EN-US'><i>&nbsp; </i></span><b><span
+style='font-family:Arial;color:#004080;mso-fareast-language:EN-US'><br>
+<br>
+</span></b><strong><span style='font-size:18.0pt;font-family:Arial;color:#004080;
+mso-fareast-language:EN-US'>Project 4: </span><span style="font-size: 18.0pt; font-family: Arial; color: #004080; mso-fareast-language: EN-US">Machine
+Level Programming</span></strong></p>
+
+<p class=MsoBodyText style='text-align:justify'><b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>Objective:</span></b><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+ </span><span style="font-size:12.0pt">To get a taste of low-level programming
+in machine language, and to get acquainted with the Hack computer platform. In
+the process of working on this project, you will also become familiar with the
+assembly process, and you will appreciate visually how the translated binary
+code executes on the target hardware.<o:p>
+</o:p>
+</span></p>
+
+<p class=MsoBodyText style='text-align:justify'><b><span style="font-size:12.0pt">R</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">esources:
+</span></b><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:
+line">In this project you will use two tools supplied with the book: an <i>assembler</i>,
+designed to translate Hack assembly programs into binary code, and a <i>CPU
+Emulator</i>,
+designed to run binary programs on a simulated Hack platform.<o:p>
+</o:p>
+</span></p>
+
+<p class=MsoBodyText style='text-align:justify'><b><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">C</span><span style="font-size:12.0pt">ontract:</span></b><span style="font-size:12.0pt">
+Write and test the two programs described below. When executed on the CPU
+Emulator, your programs should generate the results mandated by the test scripts
+supplied in the project directory.<o:p>
+</o:p>
+</span></p>
+
+<table border="1" width="675" cellspacing="4" cellpadding="4" bordercolor="#EFCA85">
+  <tr>
+    <td width="93" valign="top" align="left" height="10" bgcolor="#F1DCA9"><font face="Times New Roman" color="#00007D" size="2"><b>Program</b></font></td>
+    <td width="245" valign="top" align="left" height="10" bgcolor="#F1DCA9"><font face="Times New Roman" color="#00007D" size="2"><b>Function</b></font></td>
+    <td width="289" valign="top" align="left" height="10" bgcolor="#F1DCA9"><font face="Times New Roman" color="#00007D" size="2"><b>Comments</b></font></td>
+  </tr>
+  <tr>
+    <td width="93" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2"><b>Mult.asm</b></font>
+    </td>
+    <td width="245" valign="top" align="left" height="36">
+      <p style="line-height: 100%; margin-top: 8"><span style="font-size:12.0pt;mso-fareast-language:
+EN-US">Multiplication: </span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:HE">The inputs of this program are the current values
+      stored in </span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+HE;mso-bidi-language:HE" class="code">R0</span><span style="font-size:12.0pt;
+font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:HE"> and </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:
+HE" class="code">R1</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:HE"> (i.e. the two top RAM locations). The program
+      computes the product </span><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:HE;mso-bidi-language:HE" class="code">R0*R1</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:HE"> and stores the result in </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:HE" class="code">R2</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:HE">.</span>
+    </td>
+    <td width="289" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><span style="font-size:12.0pt;mso-fareast-language:EN-US">We
+    assume (in this program) that </span><span style="font-size:11.0pt;
+mso-bidi-font-size:13.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">R0</span><span style="font-size:12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;" class="code"><span style="mso-text-raise: -2.0pt">&gt;=</span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1025"
+  DrawAspect="Content" ObjectID="_1108061103">
+ </o:OLEObject>
+</xml><![endif]-->
+    0</span><span style="font-size:12.0pt;mso-fareast-language:
+EN-US">, </span><span style="font-size:11.0pt;mso-bidi-font-size:
+13.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">R1</span><span style="font-size:12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;" class="code"><span style="mso-text-raise: -2.0pt">&gt;=</span><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1026"
+  DrawAspect="Content" ObjectID="_1108061104">
+ </o:OLEObject>
+</xml><![endif]-->
+    0</span><span style="font-size:12.0pt;mso-fareast-language:
+EN-US">, and&nbsp; </span><span style="font-size:11.0pt;
+mso-bidi-font-size:13.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">R0*R1</span><span style="font-size:12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;" class="code">&lt;32768</span><span style="font-size:12.0pt;mso-fareast-language:EN-US">.
+    Your program</span> <span style="font-size:12.0pt;mso-fareast-language:EN-US">need not test these conditions, but rather
+    assume that they
+    hold.<span style="mso-spacerun: yes">&nbsp; </span>The supplied </span><a href="mult/Mult.tst"><span style="font-size:11.0pt;mso-bidi-font-size:13.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Mult.tst</span></a><span style="font-size:12.0pt;mso-fareast-language:EN-US">
+    and </span><a href="mult/Mult.cmp"><span style="font-size:11.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Mult.cmp</span></a><span style="font-size:12.0pt;mso-fareast-language:EN-US">
+    scripts will test your program on several representative data values.<o:p>
+    </o:p>
+    </span>
+    </td>
+  </tr>
+  <tr>
+    <td width="93" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><font face="Courier New" size="2"><b>Fill.asm</b></font>
+    </td>
+    <td width="245" valign="top" align="left" height="36">
+      <p style="margin-top: 8"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:HE">I/O handling: This program runs an infinite loop
+      that listens to the keyboard input. When a key is pressed (any key), the
+      program blackens the screen, i.e. writes &quot;black&quot; in every pixel.
+      When no key is pressed, the screen should be cleared.</span>
+    </td>
+    <td width="289" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:HE">You may choose to blacken and clear the screen in
+    any visual order, as long as pressing a key continuously for long enough will
+    result in a fully blackened screen and not pressing any key for long enough
+    will result in a cleared screen. This program has a test script (</span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:
+HE" class="code"><a href="fill/Fill.tst">Fill.tst</a></span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:HE">) but no compare file – it should be checked
+    visually by inspecting the simulated screen.</span><span style="font-size:12.0pt;mso-fareast-language:EN-US">
+    </o:p>
+    </span>
+    </td>
+  </tr>
+</table>
+
+<p class="MsoBodyText" style="text-align:justify;mso-outline-level:1"><strong><font color="#004080" face="Arial" size="3">Steps</font></strong>
+</p>
+
+<p class="MsoBodyText" style="text-align:justify;mso-outline-level:1"><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">We
+recommend proceeding in the following order:</span>
+</p>
+<p class="MsoBodyText" style="margin-top:3.0pt;margin-right:2.85pt;margin-bottom:
+0cm;margin-left:18.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l64 level1 lfo58;tab-stops:list 18.0pt"><span style="font-size:12.0pt;mso-fareast-language:EN-US">0.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style="font-size:12.0pt;mso-fareast-language:
+EN-US;layout-grid-mode:line">The </span><span class="code"><i><span style="font-size:12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">assembler</span></i></span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"> and </span><span class="code"><i><span style="font-size:12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">CPU Emulator</span></i></span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"> programs needed for this
+project are available in the </span><span style="font-size: 10.0pt; mso-bidi-font-size: 13.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">t<span style="font-size: 10.0pt; mso-bidi-font-size: 13.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman">oo</span>ls</span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"> directory of the book’s software
+suite. Before using them, go through the <i>Assembler Tutorial </i>and the <i>CPU
+Emulator Tutorial, </i>available in the </span><span style="font-size: 10.0pt; mso-bidi-font-size: 13.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">tutorials</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">
+<span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">dir</span></span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">ectory.</span><span style="font-size:12.0pt;mso-fareast-language:EN-US"><o:p>
+&nbsp;
+</span></p>
+<p class="MsoBodyText" style="margin-top:3.0pt;margin-right:2.85pt;margin-bottom:
+0cm;margin-left:18.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l64 level1 lfo58;tab-stops:list 18.0pt"><span style="mso-fareast-language: EN-US; layout-grid-mode: line"><span style="mso-fareast-language:EN-US;layout-grid-mode:
+line">1.&nbsp;&nbsp; Create a directory </span></span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">named</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US"> </span><span style="font-size:10.0pt;mso-bidi-font-size:
+13.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">projects/04</span><span style="font-size:12.0pt;mso-fareast-language:EN-US">
+ con your computer</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">
+and extract <a href="project%2004.zip">project
+04.zip</a> to it (</span><span style="mso-fareast-language:EN-US;layout-grid-mode:
+line">preserving the directory structure embedded in the zip file</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">).</span><span style="font-size:12.0pt;mso-fareast-language:EN-US"></o:p>
+</span></p>
+<p class="MsoBodyText" style="margin-top:3.0pt;margin-right:2.85pt;margin-bottom:
+0cm;margin-left:18.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l64 level1 lfo58;tab-stops:list 18.0pt"><span style="font-size:12.0pt">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style="font-size:12.0pt;mso-fareast-language:
+EN-US">Use a plain text editor to write the first program in assembly, and save it as </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">projects/04/mult/Mult.asm</span><span style="font-size:12.0pt;mso-fareast-language:EN-US">.</span><span style="font-size:12.0pt"><o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="margin-top:3.0pt;margin-right:2.85pt;margin-bottom:
+0cm;margin-left:18.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l64 level1 lfo58;tab-stops:list 18.0pt"><span style="font-size:12.0pt">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style="font-size:12.0pt;mso-fareast-language:
+EN-US">Use the supplied a</span><span style="font-size:12.0pt;
+mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;" class="code">ssembler</span><span style="font-size:12.0pt;mso-fareast-language:EN-US">
+(in either batch or interactive mode) to translate your program. If you get
+syntax errors, go to step 1. If there are no syntax errors, the assembler will
+produce a file called </span><span style="font-size:12.0pt;mso-fareast-language:
+EN-US"> </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">projects/04/mult/Mult.hack</span><span style="font-size:12.0pt;mso-fareast-language:EN-US">,
+containing binary machine instructions. </span><span style="font-size:12.0pt"><o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="margin-top:3.0pt;margin-right:2.85pt;margin-bottom:
+0cm;margin-left:18.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l64 level1 lfo58;tab-stops:list 18.0pt"><span style="font-size:12.0pt">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style="font-size:12.0pt;mso-fareast-language:
+EN-US">Use the supplied </span><span style="font-size:12.0pt;
+mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;" class="code">CPU
+Emulator</span><span style="font-size:12.0pt;mso-fareast-language:EN-US"> to
+test </span><span style="font-size: 12.0pt; mso-fareast-language: EN-US">the
+resulting </span><span style="font-size:10.0pt;mso-bidi-font-size:
+13.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Mult.hack</span><span style="font-size:12.0pt;mso-fareast-language:EN-US">
+code.&nbsp; This can be done either interactively, or batch-style using the supplied </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Mult.tst</span><span style="font-size:12.0pt;mso-fareast-language:EN-US">
+script. If you get run-time errors, go to step 1. </span><span style="font-size:12.0pt"></o:p>
+</span></p>
+<p class="MsoBodyText" style="margin-top:3.0pt;margin-right:2.85pt;margin-bottom:
+0cm;margin-left:18.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l64 level1 lfo58;tab-stops:list 18.0pt"><span style="font-size:12.0pt">5.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style="font-size:12.0pt;mso-fareast-language:
+EN-US">Repeat stages 2-4 for the second program (</span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Fill.asm</span><span style="font-size:12.0pt;mso-fareast-language:EN-US">),
+using the </span><span style="font-size:12.0pt;mso-fareast-language:
+EN-US"> </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">projects/04/fill</span><span style="font-size:12.0pt;mso-fareast-language:EN-US">
+directory.</span><span style="font-size:12.0pt"><o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="margin-top:3.0pt;margin-right:2.85pt;margin-bottom:
+0cm;margin-left:18.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l64 level1 lfo58;tab-stops:list 18.0pt">&nbsp;</p>
+<p class="MsoBodyText" dir="LTR" style="margin-top:3.0pt;margin-right:2.85pt;
+margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify"><b><span style="font-size:12.0pt;mso-fareast-language:EN-US">Debugging
+Tip:</span></b><span style="font-size:12.0pt;mso-fareast-language:EN-US"> The
+Hack language is case sensitive. A common error occurs when one writes, say, “</span><span style="font-size: 10.0pt; mso-bidi-font-size: 13.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">@<span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">foo</span></span><span style="font-size:12.0pt;mso-fareast-language:EN-US">”
+and “</span><span style="font-size: 10.0pt; mso-bidi-font-size: 13.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">@<span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Foo</span></span><span style="font-size:12.0pt;mso-fareast-language:EN-US">”
+in different parts of the program, thinking that both commands refer to the same
+variable. In fact, the assembler treats these symbols as two completely
+different identifiers.</span></p>
+<p class="MsoBodyText" dir="LTR" style="margin-top:3.0pt;margin-right:2.85pt;
+margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify">&nbsp;</p>
+<p class="MsoBodyText" style="text-align:justify;mso-outline-level:1"><strong><font color="#004080" face="Arial" size="3">Tools</font></strong>
+</p>
+<p class="MsoBodyText" dir="LTR" style="margin-top:3.0pt;margin-right:2.85pt;
+margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify"><b><span style="font-size:12.0pt">The
+supplied assembler: </span></b><span style="font-size:12.0pt">The book’s
+software suite includes a Hack assembler that can be used in either command mode
+or GUI mode. The latter mode of operation allows observing the translation
+process in a visual and step-wise fashion.</span></p>
+<p class="MsoBodyText" dir="LTR" style="margin-top:3.0pt;margin-right:2.85pt;
+margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify">&nbsp;</p>
+<p class="MsoBodyText" dir="LTR" style="margin-top:3.0pt;margin-right:2.85pt;
+margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify"><img border="0" src="fig%204.7.gif" width="880" height="636"></p>
+<p class="MsoBodyText" dir="LTR" style="margin-top:3.0pt;margin-right:2.85pt;
+margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify">&nbsp;</p>
+<p class="MsoBodyText" dir="LTR" style="margin-top:3.0pt;margin-right:2.85pt;
+margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify"><span style="font-size:12.0pt;mso-bidi-font-weight:bold" class="figuretext">The
+machine language programs produced by the assembler can be tested in two
+different ways. First, one can run the </span><span style="font-size:10.0pt;
+mso-bidi-font-size:13.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.hack</span><span style="font-size:12.0pt;mso-bidi-font-weight:bold" class="figuretext">
+program in the CPU Emulator. Alternatively, one can run the same program
+directly on the hardware, by loading it into the computer’s instruction memory
+using the hardware simulator. Since we will complete building the hardware
+platform only in the next chapter, the former option makes more sense at this
+stage.<o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="text-align:justify"><b><span style="font-size:12.0pt">The
+supplied CPU Emulator: </span></b><span style="font-size:12.0pt">This program
+simulates the Hack computer platform. It allows loading a Hack program into the
+simulated ROM, and visually observing its execution on the simulated hardware.</span><span style="font-size:12.0pt;mso-fareast-language:EN-US"><o:p></span></p>
+<p class="MsoBodyText" style="text-align:justify"><img border="0" src="slide%204.gif" width="880" height="636"></p>
+<p class="MsoBodyText" style="text-align:justify"><span style="font-size:12.0pt;mso-bidi-font-weight:bold" class="figuretext">For
+ease of use, the CPU Emulator enables loading binary </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.hack</span><span style="font-size:12.0pt;mso-bidi-font-weight:bold" class="figuretext">
+files <i>as well as</i> symbolic </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.asm</span><span style="font-size:12.0pt;mso-bidi-font-weight:bold" class="figuretext">
+files. In the latter case, the emulator translates the assembly program into
+binary code on the fly. This utility seems to render the supplied assembler
+unnecessary, but this is not the case. First, the supplied assembler shows the
+translation process visually, for instructive purposes. Second, the binary files
+generated by the assembler can be executed directly on the </span><span style="font-size:12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;" class="code">hardware
+platform</span><span style="font-size:12.0pt;mso-bidi-font-weight:bold" class="figuretext">.
+To do so, load the </span><span style="font-size:
+10.0pt;mso-bidi-font-size:13.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;" class="code">Computer</span><span style="font-size:12.0pt;mso-bidi-font-weight:bold" class="figuretext">
+chip (built in Project 5) into the hardware simulator, and then load the </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.hack</span><span style="font-size:12.0pt;mso-bidi-font-weight:bold" class="figuretext">
+file generated by the assembler into the computer’s ROM chip.</span><span style="font-size:12.0pt;mso-fareast-language:EN-US"><o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="text-align: justify">&nbsp;</p>
+
+</BODY></HTML>

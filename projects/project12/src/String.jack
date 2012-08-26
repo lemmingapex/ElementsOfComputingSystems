@@ -1,0 +1,130 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/12/String.jack
+
+/**
+ * The String type.
+ */
+class String {
+
+	field Array string;
+	field int length;
+	field int maximumLength;
+
+	/** Constructs a new empty String with a maximum length of
+	 *  maxLength. */
+	constructor String new(int maxLength) {
+		let length = 0;
+		if(maxLength < 1) {
+			let maxLength = 1;
+		}
+		let maximumLength = maxLength;
+		let string = Array.new(maximumLength);
+		return this;
+	}
+
+	/** De-allocates the string and frees its space. */
+	method void dispose() {
+		let length = 0;
+		let maximumLength = 0;
+		do string.dispose();
+		return;
+	}
+
+	/** Returns the current length of this String. */
+	method int length() {
+		return length;
+	}
+
+	/** Returns the character at location j. */
+	method char charAt(int j) {
+		return string[j];
+	}
+
+	/** Sets the j'th character of this string to be c. */
+	method void setCharAt(int j, char c) {
+		let string[j] = c;
+		return;
+	}
+
+	/** Appends the character c to the end of this String.
+	 *  Returns this string as the return value. */
+	method String appendChar(char c) {
+		let string[length] = c;
+		let length = length + 1;
+		return this;
+	}
+
+	/** Erases the last character from this String. */
+	method void eraseLastChar() {
+		let length = length - 1;
+		return;
+	}
+
+	/** Returns the integer value of this String until the first non
+	 *  numeric character. */
+	method int intValue() {
+		var int i, intValue;
+		var boolean negitiveNumber;
+		let i=0;
+		let intValue=0;
+		let negitiveNumber=false;
+		if(string[i] = 45) //45 is the ascii value of '-'
+		{
+			let negitiveNumber = true;
+			let i = i + 1;
+		}
+		while(i < length) {
+			let intValue = (string[i] - 48) + (intValue * 10);
+			let i = i + 1;
+		}
+		if(negitiveNumber)
+		{
+			let intValue = intValue * -1;
+		}
+		return intValue;
+	}
+
+	/** Sets this String to hold a representation of the given
+	 *  number. */
+	method void setInt(int number) {
+		let length = 0;
+		if(number < 0)
+		{
+			do appendChar(45);
+		}
+		let number=Math.abs(number);
+		do reverse(number);
+		return;
+	}
+
+	/** helper to reverse string order. */
+	method void reverse(int number) {
+		var int digit;
+		var int tenthOfNumber;
+		if(number=0) {
+			return;
+		}
+		let tenthOfNumber = number / 10;
+		let digit = number - (tenthOfNumber * 10);
+		do reverse(tenthOfNumber);
+		do appendChar(digit + 48);
+		return;
+	}
+
+	/** Returns the new line character. */
+	function char newLine() {
+		return 128;
+	}
+
+	/** Returns the backspace character. */
+	function char backSpace() {
+		return 129;
+	}
+
+	/** Returns the double quote (") character. */
+	function char doubleQuote() {
+		return 34;
+	}
+}

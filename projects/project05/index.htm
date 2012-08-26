@@ -1,0 +1,371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1255">
+<META content="Microsoft FrontPage 4.0" name=GENERATOR>
+<base target="_self">
+</HEAD>
+<BODY>
+
+<p class=MsoNormal><font color="#004080"><i>The Elements of Computing&nbsp;
+Systems </i>/ <i>Nisan &amp; Schocken</i></font><span style="color:#004080;
+mso-fareast-language:EN-US"><i> </i>/ www.idc.ac.il/tecs</span><span style='color:#004080;
+mso-fareast-language:EN-US'><i>&nbsp;&nbsp; </i></span><b><span
+style='font-family:Arial;color:#004080;mso-fareast-language:EN-US'><br>
+<br>
+</span></b><strong><span style='font-size:18.0pt;font-family:Arial;color:#004080;
+mso-fareast-language:EN-US'>Project 5: </span><span style="font-size: 18.0pt; font-family: Arial; color: #004080; mso-fareast-language: EN-US">Computer
+Architecture</span></strong></p>
+
+<p class=MsoBodyText style='text-align:justify'><b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>Objective:</span></b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>  </span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+ <span style="font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">
+ Build the Hack computer platform, culminating in the top-most <span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: HE; layout-grid-mode: line">Computer</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:HE;layout-grid-mode:line"> chip.</span></span></o:p>
+</span></p>
+
+<p class="MsoBodyText" style="text-align:justify"><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:
+line"><span style="font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE"><b>Resources:</b>
+The only tools needed for this project are the supplied hardware simulator and the test scripts described below.<span style="font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">&nbsp;
+</span>The computer platform should be implemented in the HDL language specified
+in appendix A.</span><o:p>
+</o:p>
+</span></p>
+
+<p class="MsoBodyText" style="text-align:justify"><span style="font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE"><b>Contract:</b>
+The
+computer platform that you build should be capable of executing programs written
+in the Hack machine language, specified in Chapter 4.&nbsp; Demonstrate this
+capability by having your </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; mso-fareast-language: EN-US; layout-grid-mode: line">Computer</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">
+chip run the three test programs given below.</span></span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"><o:p>
+&nbsp;
+</span></p>
+
+<p class="MsoBodyText" style="text-align:justify"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE"><b>Component testing:
+</b>
+We supply test scripts and compare files for unit-testing the Memory and CPU
+chips in isolation. It’s important to complete the testing of these chips
+before building the overall Computer chip.</span></p>
+
+<p class="MsoBodyText" style="text-align:justify;mso-outline-level:1"><strong><font color="#004080" face="Arial" size="3">Chips</font></strong><o:p>
+</p>
+<p class="MsoBodyText" style="text-align:justify"><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">Build the computer in the
+following order:
+</span></p>
+
+<table border=1 cellspacing=4 cellpadding=0 width=620 style='mso-cellspacing: 3.0pt; mso-padding-alt: 3.0pt 3.0pt 3.0pt 3.0pt; border: .75pt outset #EFCA85'>
+ <tr style='height:7.5pt'>
+  <td width=96 valign=top style='width: 71.7pt; background-color: #F1DCA9; background-repeat: repeat; background-attachment: scroll; border: .75pt inset #EFCA85; padding: 3.0pt; background-position: 0%' height="23">
+  <p class=MsoNormal style='mso-line-height-alt:7.5pt'><b><span style='font-size:
+  10.0pt;color:#00007D;mso-fareast-language:EN-US'>Chip (HDL)</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span></b></p>
+  </td>
+  <td width=221 valign=top style='background-color: #F1DCA9; background-repeat: repeat; background-attachment: scroll; border: .75pt inset #EFCA85; padding: 3.0pt; background-position: 0% 50%' height="23">
+  <p class=MsoNormal style='mso-line-height-alt:7.5pt'><b><span style='font-size:
+  10.0pt;color:#00007D;mso-fareast-language:EN-US'>Function</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span></b></p>
+  </td>
+  <td width=154 valign=top style='background-color: #F1DCA9; background-repeat: repeat; background-attachment: scroll; border: .75pt inset #EFCA85; padding: 3.0pt; background-position: 0% 50%' height="23">
+  <p class=MsoNormal style='mso-line-height-alt:7.5pt'><b><span style='font-size:
+  10.0pt;color:#00007D;mso-fareast-language:EN-US'>Test script</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span></b></p>
+  </td>
+  <td width=129 valign=top style='background-color: #F1DCA9; background-repeat: repeat; background-attachment: scroll; border: .75pt inset #EFCA85; padding: 3.0pt; background-position: 0%' height="23">
+  <p class=MsoNormal style='mso-line-height-alt:7.5pt'><b><span style='font-size:
+  10.0pt;color:#00007D;mso-fareast-language:EN-US'>Compare file</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="Memory.hdl"><font face="Courier New" size="2">Memory.hdl</font></a>
+  </td>
+  <td width=221 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font size="2">Entire
+    RAM address space</font>
+  </td>
+  <td width=154 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <p align="left"><a href="Memory.tst" target="_self"><font face="Courier New" size="2">Memory.tst</font></a></p>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="Memory.cmp" target="_self"><font face="Courier New" size="2">Memory.cmp</font></a>
+  </td>
+ </tr>
+ <tr>
+	 <td rowspan=2 width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="CPU.hdl" target="_self"><font face="Courier New" size="2">CPU.hdl</font></a>
+  </td>
+  <td rowspan=2 width=221 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font size="2">The Hack CPU</font>
+  </td>
+  <td width=154 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+	  <a href="CPU.tst" target="_self"><font face="Courier New" size="2">CPU.tst</font></a> <font size="2">(recommended - requires the usage of the built-in DRegister)</font></a>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="CPU.cmp" target="_self"><font face="Courier New" size="2">CPU.cmp</font></a>
+  </td>
+ </tr>
+ <tr style='height:27.0pt'>
+  <td width=500 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+	  <a href="CPU-external.tst" target="_self"><font face="Courier New" size="2">CPU-external.tst</font></a> <font size="2">(less thorough but does not require the usage of the built-in DRegister)</font></a>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="CPU-external.cmp" target="_self"><font face="Courier New" size="2">CPU-external.cmp</font></a>
+  </td>
+ </tr>
+ <tr style='height:27.0pt'>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="Computer.hdl" target="_self"><font face="Courier New" size="2">Computer.hdl</font></a>
+  </td>
+  <td width=221 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font size="2">The platform's top-most chip</font>
+  </td>
+  <td width=154 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font size="2">See below</font>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <font size="2">See below</font>
+  </td>
+ </tr>
+</table>
+
+<p class="MsoBodyText" style="text-align:justify;mso-outline-level:1"><strong><font color="#004080" face="Arial" size="3">Test
+Programs</font></strong><o:p>
+</p>
+<p class="MsoBodyText" style="text-align:justify"><span style="font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">A natural way to test the
+overall </span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Computer</span><span style="font-size:12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;" class="code">  chip implementation is
+to have it execute some sample programs written in the Hack language. In order
+to run such a test, one can write a test script that loads the </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Computer</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+chip into the hardware simulator, loads a program from an external text file
+into its </span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">ROM</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">
+chip, and then runs the clock enough cycles to execute the program. We supply
+all the files necessary to run three such tests, as follows:<o:p>
+</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+</o:p>
+</span></span></p>
+<p class="MsoBodyText" style="text-align:justify"><span style="font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; mso-fareast-language: EN-US; layout-grid-mode: line"><b><a href="Add.hack" target="_self">Add.hack</a></b><a href="add/Add.hack">:</a>
+ </span>A<span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">dds
+the two constants 2 and 3 and writes the result in </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; mso-fareast-language: EN-US; layout-grid-mode: line">RAM[0]</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Recommended test script (requires the usage of the built-in ARegister, DRegister, PC and RAM16K): </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-language: EN-US; layout-grid-mode: line; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE"><a href="ComputerAdd.tst" target="_self">ComputerAdd.tst</a></span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">
+and <a href="ComputerAdd.cmp" target="_self">ComputerAdd.cmp</a></span><a href="ComputerAdd.tst" target="_self"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">.</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Alternative test script (less thorough but only requires the usage of the built-in RAM16K): </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-language: EN-US; layout-grid-mode: line; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE"><a href="ComputerAdd-external.tst" target="_self">ComputerAdd-external.tst</a></span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">
+and <a href="ComputerAdd-external.cmp" target="_self">ComputerAdd-external.cmp</a></span><a href="ComputerAdd.tst" target="_self"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">.</span></a></span></p>
+<p class="MsoBodyText" style="text-align: justify; margin-top: 12"><span style="font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; mso-fareast-language: EN-US; layout-grid-mode: line"><b><a href="Max.hack" target="_self">Max.hack</a></b><a href="max/Max.hack">:</a></span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">
+ Computes
+the maximum of </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-language: EN-US; layout-grid-mode: line; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">RAM[0]</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">
+and </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-language: EN-US; layout-grid-mode: line; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">RAM[1]</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">
+and writes the result in </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-language: EN-US; layout-grid-mode: line; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">RAM[2]</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Recommended test script: (requires the usage of the built-in ARegister, DRegister, PC and RAM16K): </span><a href="ComputerMax.tst" target="_self"><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; mso-fareast-language: EN-US; layout-grid-mode: line">ComputerMax.tst</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">
+</span></a>and <span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; mso-fareast-language: EN-US; layout-grid-mode: line"><a href="ComputerMax.cmp" target="_self">ComputerMax.cmp</a></span><a href="ComputerMax.cmp" target="_self"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">.</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Alternative test script: (less thorough but only requires the usage of the built-in RAM16K): </span><a href="ComputerMax-external.tst" target="_self"><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; mso-fareast-language: EN-US; layout-grid-mode: line">ComputerMax-external.tst</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">
+</span></a>and <span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; mso-fareast-language: EN-US; layout-grid-mode: line"><a href="ComputerMax-external.cmp" target="_self">ComputerMax-external.cmp</a></span><a href="ComputerMax.cmp" target="_self"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">.</span></a></span></p>
+<p class="MsoBodyText" style="text-align: justify; margin-top: 12"><span style="font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; mso-fareast-language: EN-US; layout-grid-mode: line"><b><a href="Rect.hack" target="_self">Rect.hack</a></b><a href="rect/Rect.hack">:</a></span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">&nbsp;
+</span>D<span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">raws
+a rectangle of width 16 pixels and length </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-language: EN-US; layout-grid-mode: line; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">RAM[0]</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">
+at the top left of the screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Recommended test script (requires the usage of the built-in ARegister, DRegister, PC and RAM16K): </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; mso-fareast-language: EN-US; layout-grid-mode: line"><a href="ComputerRect.tst" target="_self">ComputerRect.tst</a></span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">
+and </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; mso-fareast-language: EN-US; layout-grid-mode: line"><a href="ComputerRect.cmp" target="_self">ComputerRect.cmp</a></span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">.&nbsp;&nbsp;
+<o:p>
+</o:p>
+</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Alternative test scripts (less thorough but does not require the usage of any built-in chips): </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; mso-fareast-language: EN-US; layout-grid-mode: line"><a href="ComputerRect-external.tst" target="_self">ComputerRect-external.tst</a></span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">
+and </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; mso-fareast-language: EN-US; layout-grid-mode: line"><a href="ComputerRect-external.cmp" target="_self">ComputerRect-external.cmp</a></span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">.&nbsp;&nbsp;
+<o:p>
+</o:p>
+</span></span></p>
+<p class="MsoBodyText" style="text-align:justify"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:HE;layout-grid-mode:line">Before testing your </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:
+HE" class="code">Computer</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:HE;layout-grid-mode:line"> chip on any one of the above
+programs, read the relevant </span><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:HE;mso-bidi-language:HE" class="code">.tst</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:HE;layout-grid-mode:line">  file and be sure to understand the
+instructions given to the simulator. Appendix B may be a useful reference here.</span></p>
+<p class="MsoBodyText" style="text-align:justify"><strong><font color="#004080" face="Arial" size="3">Steps</font></strong></p>
+<p class="MsoBodyText" style="text-align:justify"><span style="mso-fareast-language: EN-US; layout-grid-mode: line"><span style="mso-fareast-language:EN-US;layout-grid-mode:
+line"><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"><span>1. </span>Create a directory
+<span>named </span></span> </span><font face="Courier" size="1">projects/05</font><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"> </span></span><span style="mso-fareast-language: EN-US; layout-grid-mode: line; font-size: 12.0pt">o<span>n</span>
+</span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">
+<span style="mso-fareast-language:EN-US;layout-grid-mode: 
+line">your computer <span>and </span>extract <a href="project%2005.zip">project
+0<span>5</span>.zip</a> to it </span><span style="mso-fareast-language:EN-US;layout-grid-mode:
+line">(while preserving the directory structure embedded in the zip file)</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">.</span>
+</span></p>
+<p class="MsoBodyText" style="text-align:justify"><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">2. Build the computer in the
+following order:<o:p>
+</o:p>
+ &nbsp;<o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="margin-top:0in;margin-right:2.8pt;margin-bottom:
+0in;margin-left:.25in;margin-bottom:.0001pt;text-align:justify;text-indent:
+-.25in;mso-list:l32 level1 lfo94;tab-stops:list .25in right 6.5in"><span style="font-size:12.0pt;mso-bidi-font-size:13.0pt;font-family:Wingdings;
+mso-fareast-language:EN-US;layout-grid-mode:line">§<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"><b>Memory</b><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"><b>:</b>  <span style="font-size:12.0pt;mso-fareast-language:
+EN-US;layout-grid-mode:line">Composed from </span><span>  <span style="font-size:12.0pt;mso-fareast-language:
+EN-US;layout-grid-mode:line"> three chips: </span>RAM16K<span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">,
+</span>Screen<span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">,
+and</span> Keyboard. <span style="font-size:12.0pt;mso-fareast-language:
+EN-US;layout-grid-mode:line">The </span>Screen<span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+and the </span>Keyboard<span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+are available as built-in chips and there is no need to build them. Although
+the </span>RAM16K<span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+chip was built in Project 3, we recommend using its built-in
+version, as it provides a debugging-friendly GUI.</span><o:p>
+</o:p>
+ </span></span></span><span style="font-size:12.0pt;mso-bidi-font-size:13.0pt;mso-fareast-language:EN-US;
+layout-grid-mode:line"></o:p>
+</span></p>
+<p class="MsoBodyText" style="margin-top:6.0pt;margin-right:2.85pt;margin-bottom:
+0in;margin-left:17.85pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-.25in;mso-list:l32 level1 lfo94;tab-stops:list .25in right 6.5in"><span style="font-size:12.0pt;font-family:Wingdings;mso-fareast-language:EN-US;
+layout-grid-mode:line">§<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"><b>CPU:</b>
+ <span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"><span><span style="font-size:12.0pt;mso-fareast-language:
+EN-US;layout-grid-mode:line">Can be composed according to the proposed
+ implementation given in Figure 5.9, using the </span>ALU<span style="font-size:12.0pt;mso-fareast-language:
+EN-US;layout-grid-mode:line"> and r</span>egister chips built in Chapters
+ 2 and 3, respectively. We recommend using the built-in versions of these chips,
+ in particular ARegister<span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+ and </span>DRegister<span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">.
+ These chips have exactly the same functionality of the </span>Register chip specified in Chapter 3,
+ plus GUI side effects.<o:p>
+ </o:p>
+ </span>
+ </o:p>
+</span></span></p>
+<p class="MsoBodyText" style="margin-top:6.0pt;margin-right:2.85pt;margin-bottom:
+0in;margin-left:17.85pt;margin-bottom:.0001pt;text-align:justify;tab-stops:
+right 6.5in"><span style="font-size:12.0pt;mso-fareast-language:EN-US;
+layout-grid-mode:line">I<span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:HE;layout-grid-mode:line">n the course of implementing
+the CPU, it is allowed (but not necessarily recommended) to specify and build
+some internal chips of your own. This is up to you. If you choose to create new
+chips not mentioned in the book, be sure to document and test them carefully
+before you plug them into the architecture.</span></o:p>
+</span></p>
+<p class="MsoBodyText" style="margin-top:6.0pt;margin-right:2.85pt;margin-bottom:
+0in;margin-left:17.85pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-.25in;mso-list:l32 level1 lfo94;tab-stops:list .25in right 6.5in"><span style="font-size:12.0pt;font-family:Wingdings;mso-fareast-language:EN-US;
+layout-grid-mode:line;mso-bidi-font-weight:bold">§<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"><b>Instruction
+Memory:</b><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+Use the built-in </span>ROM32K<span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+chip.<o:p>
+ </span></span><b><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+</o:p>
+</span>
+</b></p>
+<p class="MsoBodyText" style="margin-top:6.0pt;margin-right:2.85pt;margin-bottom:
+0in;margin-left:17.85pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-.25in;mso-list:l32 level1 lfo94;tab-stops:list .25in right 6.5in"><span style="font-size:12.0pt;font-family:Wingdings;mso-fareast-language:EN-US;
+layout-grid-mode:line">§<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"><b>Computer</b><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"><b>:</b> </span><span style="font-size:12.0pt;mso-fareast-language:
+EN-US;layout-grid-mode:line">The top-most </span>Computer
+chip can be composed from the chips mentioned above, using Figure 5.10 as a
+blueprint.</span></p>
+<p class="MsoBodyText" style="text-align:justify"><strong><font color="#004080" face="Arial" size="3">Tools</font></strong></p>
+<p class="MsoBodyText" style="text-align:justify;mso-outline-level:1"><b><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">The
+Hardware Simulator: </span></b><span style="font-size:12.0pt;mso-fareast-language:
+EN-US;layout-grid-mode:line">As in Projects 1-3, all the chips in this pro</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">ject
+(including the topmost Computer<span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+chip) can be implemented and teste</span></span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">d using the hardware simulator supplied with
+the book.&nbsp; Here is a screen shot of testing the </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Rect.hack</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+ pro</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line">gram on a
+Computer<span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+chip implementation.<o:p>
+</span></span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="margin-top:6.0pt;margin-right:32.4pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;tab-stops:right 468.0pt"><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">&nbsp;<o:p>
+</o:p>
+</span></p>
+<p class="MsoBlockText" style="margin-top:0cm;margin-right:2.8pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt"><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:471pt;
+ height:353.25pt'>
+ <v:imagedata src="file:///C:/DOCUME~1/shimon/LOCALS~1/Temp/msoclip1/01/clip_image001.png"
+  o:title=""/>
+</v:shape><![endif]-->
+ <img border="0" src="fig%205.11.gif" width="876" height="641"></p>
+<p class="MsoBodyText" style="margin-top:6.0pt;margin-right:32.4pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;tab-stops:right 468.0pt">&nbsp;</p>
+<p class="MsoBodyText" style="margin-top:6.0pt;margin-right:32.4pt;margin-bottom:
+0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:justify;tab-stops:right 468.0pt"><span style="font-size:11.0pt;
+font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:HE" class="figuretext">The
+</span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:
+HE" class="code">Rect</span><span style="font-size:11.0pt;
+font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:HE" class="figuretext">
+program draws a rectangle of width 16 pixels and length </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:HE" class="code">RAM[0]</span><span style="font-size:11.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+HE;mso-bidi-language:HE" class="figuretext"> at the top left of the screen. Note
+that the supplied </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:
+HE" class="code">Rect</span><span style="font-size:11.0pt;
+font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:HE" class="figuretext">
+program is correct. Thus, if it does not work properly, it means that the
+computer platform on which it runs (</span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:HE" class="code">Computer.hdl</span><span style="font-size:11.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+HE;mso-bidi-language:HE" class="figuretext"> and/or some of its lower-level
+parts) is buggy.</span></p>
+
+</BODY></HTML>

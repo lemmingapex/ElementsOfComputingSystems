@@ -1,0 +1,36 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/02/Add16.hdl
+
+/**
+ * 16-bit integer adder.  out = a + b where a,b are 16-bit 
+ * 2's complement representations of integers.  Overflow is 
+ * neither detected nor handled.
+ */
+
+CHIP Add16 {
+
+    IN  a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+    FullAdder(a=a[0], b=b[0], c=false, sum=out[0], carry=tc0);
+    FullAdder(a=a[1], b=b[1], c=tc0, sum=out[1], carry=tc1);
+    FullAdder(a=a[2], b=b[2], c=tc1, sum=out[2], carry=tc2);
+    FullAdder(a=a[3], b=b[3], c=tc2, sum=out[3], carry=tc3);
+    FullAdder(a=a[4], b=b[4], c=tc3, sum=out[4], carry=tc4);
+    FullAdder(a=a[5], b=b[5], c=tc4, sum=out[5], carry=tc5);
+    FullAdder(a=a[6], b=b[6], c=tc5, sum=out[6], carry=tc6);
+    FullAdder(a=a[7], b=b[7], c=tc6, sum=out[7], carry=tc7);
+    FullAdder(a=a[8], b=b[8], c=tc7, sum=out[8], carry=tc8);
+    FullAdder(a=a[9], b=b[9], c=tc8, sum=out[9], carry=tc9);
+    FullAdder(a=a[10], b=b[10], c=tc9, sum=out[10], carry=tc10);
+    FullAdder(a=a[11], b=b[11], c=tc10, sum=out[11], carry=tc11);
+    FullAdder(a=a[12], b=b[12], c=tc11, sum=out[12], carry=tc12);
+    FullAdder(a=a[13], b=b[13], c=tc12, sum=out[13], carry=tc13);
+    FullAdder(a=a[14], b=b[14], c=tc13, sum=out[14], carry=tc14);
+    // carry=tc15 for now, overflow will be handled later maybe...
+    FullAdder(a=a[15], b=b[15], c=tc14, sum=out[15], carry=tc15);
+}
+

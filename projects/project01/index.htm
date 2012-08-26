@@ -1,0 +1,596 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1255">
+<meta name=ProgId content=FrontPage.Editor.Document>
+<meta name=Generator content="Microsoft FrontPage 6.0">
+<meta name=Originator content="Microsoft Word 9">
+<base target="_self">
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Shimon Schocken</o:Author>
+  <o:LastAuthor>Shimon Schocken</o:LastAuthor>
+  <o:Revision>5</o:Revision>
+  <o:TotalTime>8</o:TotalTime>
+  <o:Created>2003-09-30T17:14:00Z</o:Created>
+  <o:LastSaved>2003-09-30T17:27:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>457</o:Words>
+  <o:Characters>2606</o:Characters>
+  <o:Lines>21</o:Lines>
+  <o:Paragraphs>5</o:Paragraphs>
+  <o:CharactersWithSpaces>3200</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:935361002;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1503337742 999715724 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-start-at:0;
+	mso-level-tab-stop:18.0pt;
+	mso-level-number-position:left;
+	margin-left:18.0pt;
+	text-indent:-18.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal><font color="#004080"><i>The Elements of Computing&nbsp;
+Systems </i>/ <i>Nisan &amp; Schocken</i></font><span style="color:#004080;
+mso-fareast-language:EN-US"><i> </i>/ www.idc.ac.il/tecs</span><span style='color:#004080;
+mso-fareast-language:EN-US'><i>&nbsp;&nbsp; </i></span><b><span
+style='font-family:Arial;color:#004080;mso-fareast-language:EN-US'><br>
+<br>
+</span></b><strong><span style='font-size:18.0pt;font-family:Arial;color:#004080;
+mso-fareast-language:EN-US'>Project 1: Logic Gates</span></strong><span
+style='mso-fareast-language:EN-US'> <o:p></o:p></span></p>
+
+<p class=MsoBodyText style='text-align:justify'><b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>Objective:</span></b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'> Implement all the logic gates presented in Chapter 1.
+The only building blocks that you can use are primitive </span><span
+class=code>Nand</span><span style='mso-fareast-language:EN-US;layout-grid-mode:
+line'> gates and the composite gates that you will gradually build on top of
+them.&nbsp;</span></p>
+
+<p class=MsoBodyText style='text-align:justify'><b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>Resources:</span></b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>  The only tool that you need for this project is
+the hardware simulator supplied with the book. All the chips should be
+implemented in the HDL language specified in Appendix A. For every one of the
+chips&nbsp; mentioned in Chapter 1, we provide a skeletal </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">.hdl</span><span
+style='mso-fareast-language:EN-US;layout-grid-mode:line'> program (text file)
+with a missing implementation part. In addition, for each chip we provide a </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">.tst</span><span style='mso-fareast-language:EN-US;layout-grid-mode:
+line'> script file that tells the hardware simulator how to test it, along with
+the correct output file that this script should generate, called </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">.cmp</span><span style='mso-fareast-language:EN-US;layout-grid-mode:
+line'> or &quot;compare file&quot;. Your job is to complete the missing
+implementation parts of all the supplied </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">.hdl</span><span
+style='mso-fareast-language:EN-US;layout-grid-mode:line'> programs.</span><span
+style='mso-fareast-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='text-align:justify'><b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>Contract:</span></b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'> </span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">When loaded into the <a href="http://www1.idc.ac.il/tecs/software.html">Hardware Simulator</span></a>, your chip design (modified </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.hdl</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+program), tested on the supplied </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.tst</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+file, should produce the outputs listed in the supplied </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.cmp</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+file. If that is not the case, the simulator will let you know.</span></p>
+
+<table border=1 cellspacing=4 cellpadding=0 width=501 style='mso-cellspacing: 3.0pt; mso-padding-alt: 3.0pt 3.0pt 3.0pt 3.0pt; border: .75pt outset #EFCA85' height="476">
+ <tr style='height:7.5pt'>
+  <td width=96 valign=top style='width: 71.7pt; background-color: #F1DCA9; background-repeat: repeat; background-attachment: scroll; border: .75pt inset #EFCA85; padding: 3.0pt; background-position: 0%' height="23">
+  <p class=MsoNormal style='mso-line-height-alt:7.5pt'><b><span style='font-size:
+  10.0pt;color:#00007D;mso-fareast-language:EN-US'>Chip (HDL)</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span></b></p>
+  </td>
+  <td width=141 valign=top style='background-color: #F1DCA9; background-repeat: repeat; background-attachment: scroll; border: .75pt inset #EFCA85; padding: 3.0pt; background-position: 0% 50%' height="23">
+  <p class=MsoNormal style='mso-line-height-alt:7.5pt'><b><span style='font-size:
+  10.0pt;color:#00007D;mso-fareast-language:EN-US'>Function</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span></b></p>
+  </td>
+  <td width=115 valign=top style='background-color: #F1DCA9; background-repeat: repeat; background-attachment: scroll; border: .75pt inset #EFCA85; padding: 3.0pt; background-position: 0% 50%' height="23">
+  <p class=MsoNormal style='mso-line-height-alt:7.5pt'><b><span style='font-size:
+  10.0pt;color:#00007D;mso-fareast-language:EN-US'>Test script</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span></b></p>
+  </td>
+  <td width=129 valign=top style='background-color: #F1DCA9; background-repeat: repeat; background-attachment: scroll; border: .75pt inset #EFCA85; padding: 3.0pt; background-position: 0%' height="23">
+  <p class=MsoNormal style='mso-line-height-alt:7.5pt'><b><span style='font-size:
+  10.0pt;color:#00007D;mso-fareast-language:EN-US'>Compare file</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='mso-fareast-language:EN-US'>Nand</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;mso-fareast-language:EN-US'>Nand gate (primitive)</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  &nbsp;&nbsp;
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  &nbsp;&nbsp;
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="Not.hdl" target="_self"><span
+  style='mso-fareast-language:EN-US'>Not</span></a></span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;mso-fareast-language:EN-US'>Not gate</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='mso-fareast-language:EN-US; font-size:10.0pt; font-family:Courier New'>
+	<a href="Not.tst">Not.tst</a></span></td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a target="_self" href="Not.cmp">
+	<span
+  style='mso-fareast-language:EN-US; font-size:10.0pt; font-family:Courier New'>Not.cmp</span>
+	</a>
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="And.hdl"><span
+  style='mso-fareast-language:EN-US'>And</span></a></span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;mso-fareast-language:EN-US'>And gate</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="And.tst"><span
+  style='mso-fareast-language:EN-US'>And.tst</span></a></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="And.cmp"><span
+  style='mso-fareast-language:EN-US'>And.cmp</span></a></span>
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><span
+  style='mso-fareast-language:EN-US'><a href="Or.hdl">Or</a></span></span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;mso-fareast-language:EN-US'>Or gate</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="Or.tst"><span style='mso-fareast-language:
+  EN-US'>Or.tst</span></a></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="Or.cmp"><span style='mso-fareast-language:
+  EN-US'>Or.cmp</span></a></span>
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="Xor.hdl"><span
+  style='mso-fareast-language:EN-US'>Xor</span></a></span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style="font-size: 10.0pt; mso-fareast-language: EN-US">Xor gate</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="Xor.tst"><span
+  style='mso-fareast-language:EN-US'>Xor.tst</span></a></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="Xor.cmp"><span
+  style='mso-fareast-language:EN-US'>Xor.cmp</span></a></span>
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a href="Mux.hdl">
+	<span
+  style='mso-fareast-language:EN-US; font-size:10.0pt; font-family:Courier New'>Mux</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </a>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;mso-fareast-language:EN-US'>Mux gate</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="Mux.tst"><span
+  style='mso-fareast-language:EN-US'>Mux.tst</span></a></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="Mux.cmp"><span
+  style='mso-fareast-language:EN-US'>Mux.cmp</span></a></span>
+  </td>
+ </tr>
+ <tr>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="DMux.hdl"><span style='mso-fareast-language:
+  EN-US'>DMux</span></a></span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;mso-fareast-language:EN-US'>DMux gate</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="DMux.tst"><span
+  style='mso-fareast-language:EN-US'>DMux.tst</span></a></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="DMux.cmp"><span
+  style='mso-fareast-language:EN-US'>DMux.cmp</span></a></span>
+  </td>
+ </tr>
+ <tr style='height:27.0pt'>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="Not16.hdl"><span style='mso-fareast-language:
+  EN-US'>Not16</span></a></span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style="font-size: 10.0pt; mso-fareast-language: EN-US">16-bit Not</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="Not16.tst"><span style='mso-fareast-language:
+  EN-US'>Not16.tst</span></a></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="Not16.cmp"><span style='mso-fareast-language:
+  EN-US'>Not16.cmp</span></a></span><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+ </tr>
+ <tr style='height:27.0pt'>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="And16.hdl"><span style='mso-fareast-language:
+  EN-US'>And16</span></a></span><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style="font-size: 10.0pt; mso-fareast-language: EN-US">16-bit And</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="And16.tst"><span style='mso-fareast-language:
+  EN-US'>And16.tst</span></a></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="And16.cmp"><span style='mso-fareast-language:
+  EN-US'>And16.cmp</span></a></span><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+ </tr>
+ <tr style='height:27.0pt'>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="Or16.hdl"><span style='mso-fareast-language:
+  EN-US'>Or16</span></a></span><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style="font-size: 10.0pt; mso-fareast-language: EN-US">16-bit </span><span
+  style='font-size:10.0pt;mso-fareast-language:EN-US'>Or</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="Or16.tst"><span style='mso-fareast-language:
+  EN-US'>Or16.tst</span></a></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="Or16.cmp"><span style='mso-fareast-language:
+  EN-US'>Or16.cmp</span></a></span><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+ </tr>
+ <tr style='height:27.0pt'>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a
+  href="Mux16.hdl"><span style='font-size:10.0pt;font-family:"Courier New";
+  mso-fareast-language:EN-US'>Mux16</span></a><span style='mso-fareast-language:
+  EN-US'> <o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;mso-fareast-language:EN-US'>16-bit multiplexor</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="Mux16.tst"><span style='mso-fareast-language:
+  EN-US'>Mux16.tst</span></a></span><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="Mux16.cmp"><span style='mso-fareast-language:
+  EN-US'>Mux16.cmp</span></a></span><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+ </tr>
+ <tr style='height:27.0pt'>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a
+  href="Or8Way.hdl"><span style='font-size:10.0pt;font-family:"Courier New";
+  mso-fareast-language:EN-US'>Or8Way</span></a><span style='mso-fareast-language:
+  EN-US'> <o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;mso-fareast-language:EN-US'>Or(in0,in1,...,in7)</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="Or8Way.tst"><span style='mso-fareast-language:
+  EN-US'>Or8Way.tst</span></a></span><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span style='font-size:10.0pt;
+  font-family:"Courier New"'><a href="Or8Way.cmp"><span style='mso-fareast-language:
+  EN-US'>Or8Way.cmp</span></a></span><span style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+ </tr>
+ <tr style='height:27.0pt'>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a
+  href="Mux4Way16.hdl"><span style='font-size:10.0pt;font-family:"Courier New";
+  mso-fareast-language:EN-US'>Mux4Way16</span></a><span style='mso-fareast-language:
+  EN-US'> <o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;mso-fareast-language:EN-US'>16-bit/4-way mux</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="Mux4Way16.tst"><span
+  style='mso-fareast-language:EN-US'>Mux4Way16.tst</span></a></span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="Mux4Way16.cmp"><span
+  style='mso-fareast-language:EN-US'>Mux4Way16.cmp</span></a></span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+ </tr>
+ <tr style='height:27.0pt'>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a
+  href="Mux8Way16.hdl"><span style='font-size:10.0pt;font-family:"Courier New";
+  mso-fareast-language:EN-US'>Mux8Way16</span></a><span style='mso-fareast-language:
+  EN-US'> <o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;mso-fareast-language:EN-US'>16-bit/8-way mux</span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="Mux8Way16.tst"><span
+  style='mso-fareast-language:EN-US'>Mux8Way16.tst</span></a></span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="Mux8Way16.cmp"><span
+  style='mso-fareast-language:EN-US'>Mux8Way16.cmp</span></a></span>
+  </td>
+ </tr>
+ <tr style='height:27.0pt'>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a
+  href="DMux4Way.hdl"><span style='font-size:10.0pt;font-family:"Courier New";
+  mso-fareast-language:EN-US'>DMux4Way</span></a><span style='mso-fareast-language:
+  EN-US'> <o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;mso-fareast-language:EN-US'>4-way demultiplexor</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="DMux4Way.tst"><span
+  style='mso-fareast-language:EN-US'>DMux4Way.tst</span></a></span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="DMux4Way.cmp"><span
+  style='mso-fareast-language:EN-US'>DMux4Way.cmp</span></a></span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+ </tr>
+ <tr style='height:27.0pt'>
+  <td width=96 valign=top style='width: 71.7pt; border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <a
+  href="DMux8Way.hdl"><span style='font-size:10.0pt;font-family:"Courier New";
+  mso-fareast-language:EN-US'>DMux8Way</span></a><span style='mso-fareast-language:
+  EN-US'> <o:p></o:p></span>
+  </td>
+  <td width=141 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;mso-fareast-language:EN-US'>8-way demultiplexor</span><span
+  style='mso-fareast-language:EN-US'><o:p></o:p></span>
+  </td>
+  <td width=115 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="DMux8Way.tst"><span
+  style='mso-fareast-language:EN-US'>DMux8Way.tst</span></a></span><span
+  style='mso-fareast-language:EN-US'> <o:p></o:p></span>
+  </td>
+  <td width=129 valign=top style='border: .75pt inset #EFCA85; padding: 3.0pt' height="13">
+  <span
+  style='font-size:10.0pt;font-family:"Courier New"'><a href="DMux8Way.cmp"><span
+  style='mso-fareast-language:EN-US'>DMux8Way.cmp</span></a></span><span
+  style='mso-fareast-language:EN-US'> <o:p></o:p></span>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoBodyText style='text-align:justify'><b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>Tips:</span></b><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>  <span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">The </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Nand</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+gate is considered primitive and thus there is no need to build it: whenever you
+use </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Nand</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+in one of your HDL programs, the simulator&nbsp; </u1:p>
+<u2:p>
+</u2:p>
+ automatically invokes the built-in </span><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">tools/builtInChips/Nand.hdl</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+implementation. We recommend implementing the other gates in this project in the
+order in which they appear in the chapter. However, since the simulator features
+built-in versions of all these chips, you can always use the chips without defining them first: the simulator will automatically
+invoke their built-in versions.</span> </span></p>
+
+<p class=MsoBodyText style='text-align:justify'><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">For example, consider the
+skeletal </span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Mux.hdl</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+program supplied in this project. Suppose that for one reason or another you did
+not complete the implementation of </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Mux</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">,
+but you still want to use </span><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Mux</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+chips as internal parts in other chip designs. This is not a problem, thanks to
+the following convention. If our simulator fails to find a </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Mux.hdl</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+file in the current directory, it automatically invokes a built-in </span><span style="font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code"><font size="2">Mux</font></span><span style="font-size:12.0pt;mso-fareast-language:
+EN-US;layout-grid-mode:line"> implementation, pre-supplied with the
+simulator’s software. This built-in </span><span style="font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code"><font size="2">Mux</font></span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+implementation -- a Java class stored in the simulator's </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">builtIn</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+directory -- has the same interface and functionality as those of the </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Mux</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+chip described in the book. Thus, if you want the simulator to ignore one or
+more of your chip implementations, simply move the corresponding </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.hdl</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+files out from the current directory.<u2:p>
+</u2:p>
+</span><span style="font-size:12.0pt"><o:p>
+</o:p>
+</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"><u2:p>
+</u2:p>
+<o:p>
+</o:p>
+</span></p>
+
+<p class=MsoBodyText style='text-align:justify;mso-outline-level:1'><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'><b>Steps:</b></span><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>  </span><span
+style='mso-fareast-language:EN-US;layout-grid-mode:line'>We recommend proceeding
+in the following order:<u1:p> &nbsp;</span></p>
+
+<p class=MsoBodyText style='text-align: justify; mso-outline-level: 1; line-height: 100%; margin-top: 6; margin-bottom: 0'><![if !supportLists]><span style='mso-fareast-language:
+EN-US;layout-grid-mode:line'>0.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='mso-fareast-language:EN-US;layout-grid-mode:
+line'>The <i>hardware simulator</i> needed for this project is available in the
+<i>tools</i> directory of the book’s software suite.<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='text-align: justify; text-indent: -18.0pt; mso-list: l0 level1 lfo1; tab-stops: list 18.0pt; line-height: 100%; margin-left: 18.0pt; margin-top: 6; margin-bottom: 0'><![if !supportLists]><span
+style='mso-fareast-language:EN-US;layout-grid-mode:line'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>
+<![endif]><span
+style='mso-fareast-language:EN-US;layout-grid-mode:line'>Read Appendix A (<i>Hardware
+Description Language</i>), Sections 1-6 only;<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='text-align: justify; text-indent: -18.0pt; mso-list: l0 level1 lfo1; tab-stops: list 18.0pt; line-height: 100%; margin-left: 18.0pt; margin-top: 6; margin-bottom: 0'><![if !supportLists]><span
+style='mso-fareast-language:EN-US;layout-grid-mode:line'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>
+<![endif]><span
+style='mso-fareast-language:EN-US;layout-grid-mode:line'>Go through the <i>hardware
+simulator tutorial </i>(parts I,II,III only), available in the <i>tutorials </i>directory
+of the book’s software suite;<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='text-align: justify; text-indent: -18.0pt; mso-list: l0 level1 lfo1; tab-stops: list 18.0pt; line-height: 100%; margin-left: 18.0pt; margin-top: 6; margin-bottom: 0'><![if !supportLists]><span
+style='mso-fareast-language:EN-US'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='mso-fareast-language:EN-US;layout-grid-mode:
+line'>Create a directory named </span><span style='font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman' class="code">projects/01 </span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">
+<span style='mso-fareast-language:EN-US;layout-grid-mode:
+line'> on your co</span></span><span style='mso-fareast-language:EN-US;layout-grid-mode:
+line'>mputer, extract <a href="project%2001.zip">project 01.zip</a> 
+to it,
+then build and simulate all the specified </span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">chips.</span></p>
+
+<p class=MsoBodyText style='text-align: justify; text-indent: -18.0pt; mso-list: l0 level1 lfo1; tab-stops: list 18.0pt; line-height: 100%; margin-left: 18.0pt; margin-top: 6; margin-bottom: 0'>&nbsp;</p>
+
+<p class=MsoBodyText style='text-align: justify; text-indent: -18.0pt; mso-list: l0 level1 lfo1; tab-stops: list 18.0pt; line-height: 100%; margin-left: 18.0pt; margin-top: 6; margin-bottom: 0'><span
+style='mso-fareast-language:EN-US'><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

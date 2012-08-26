@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1255">
+<META content="Microsoft FrontPage 4.0" name=GENERATOR>
+<base target="_self">
+</HEAD>
+<BODY>
+<font color="#004080"><i>The Elements of Computing&nbsp; Systems </i>/ <i>Nisan
+&amp; Schocken</i></font><span style="color:#004080;
+mso-fareast-language:EN-US"><i> </i>/ www.idc.ac.il/tecs</span><font color="#004080"><i>&nbsp;
+</i> </font><font color="#004080" face="Arial"><strong><br>
+<br>
+<font size="5">Project 6: </font></strong><font size="5"><strong>The Assembler</strong></font></font>
+<p class="MsoBodyText" style="text-align:justify"><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+ <span style="font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE"><b>Objective:</b>
+ </span>
+</span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE; layout-grid-mode: line">Develop
+an assembler that translates programs written in Hack assembly language into the
+binary code understood by the Hack hardware platform. The assembler must
+implement the <i>Translation Specification </i>described in Chapter 6, Section
+2.</span></p>
+<p class="MsoBodyText" style="text-align:justify"><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:
+line"><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line"><b>Resources:</b>
+ <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:HE;layout-grid-mode:line">The only tool needed for
+ completing this project is the programming language in which you will implement
+ your assembler. You may also find the following two tools useful: the <i>assembler</i>
+ and <i>CPU Emulator</i> supplied with the book. These tools allow you to
+ experiment with a working assembler before you set out to build one yourself.
+ In addition, the supplied assembler provides a visual line-by-line translation
+ GUI, and allows online code comparisons with the outputs that <i>your</i>
+ assembler will generate. For more information about these capabilities, refer
+ to the <i>Assembler Tutorial</i>  (<span>see the Tools section in this site</span>).</span></span>
+</span></p>
+
+<p class="MsoBodyText" style="text-align:justify"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"><b>Contract:</b>
+ </span><span style="font-size:12.0pt">When loaded into your assembler, a </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Prog.asm</span><span style="font-size:12.0pt">
+file containing a valid Hack assembly language program should be translated into
+the correct Hack binary code and stored in a </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Prog.hack</span><span style="font-size:12.0pt">
+file. The output produced by your assembler must be identical to the output
+produced by the assembler supplied with the book.<o:p>
+</o:p>
+</span></p>
+
+<p class="MsoBodyText" style="text-align:justify"><strong><span style="font-size:12.0pt;font-family:
+&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:HE;mso-bidi-language:HE">Building Plan: </span></strong><span style="font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE; font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"><span style="font-size:12.0pt;mso-fareast-language:EN-US">We
+suggest building the assembler in two stages. First write a symbol-less
+assembler, i.e. an assembler that can only translate programs that contain no
+symbols. Then extend your assembler with symbol handling capabilities. The test
+programs that we supply for this project come in two such versions (without and
+with symbols), to help you test your assembler incrementally.<o:p>
+</o:p>
+</span></o:p>
+</span></p>
+
+<p class="MsoBodyText" style="text-align:justify;mso-outline-level:1"><strong><font color="#004080" face="Arial" size="3">Test
+Programs</font></strong>
+</p>
+<p class="MsoBodyText" style="text-align:justify"><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: HE"><span style="font-size: 12.0pt; mso-fareast-language: EN-US; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE">Each
+test program except the first one comes in two versions: </span></span><span style="font-size: 10.0pt; font-family: Courier New; mso-bidi-font-size: 13.0pt; mso-bidi-font-family: Times New Roman" class="code"> ProgL.asm</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE"> is
+symbols-less, and </span><span style="font-size: 10.0pt; font-family: Courier New; mso-bidi-font-size: 13.0pt; mso-bidi-font-family: Times New Roman" class="code"> Prog.asm</span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-bidi-language: HE"> is with symbols.</span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"><span style="font-weight:normal"><strong><o:p>
+</o:p>
+</strong></span></o:p>
+</span></p>
+
+<table border="1" width="642" cellspacing="4" cellpadding="4" bordercolor="#EFCA85">
+  <tr>
+    <td width="77" valign="top" align="left" height="10" bgcolor="#F1DCA9"><font face="Times New Roman" color="#00007D" size="2"><b>Program</b></font></td>
+    <td width="393" valign="top" align="left" height="10" bgcolor="#F1DCA9"><font face="Times New Roman" color="#00007D" size="2"><b>Description</b></font></td>
+    <td width="124" valign="top" align="left" height="10" bgcolor="#F1DCA9"><font face="Times New Roman" color="#00007D" size="2"><b>Symbol-less
+      version</b></font></td>
+  </tr>
+  <tr>
+    <td width="77" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><a href="add/Add.asm" target="_self"><font face="Courier New" size="2">Add.asm</font></a>
+    </td>
+    <td width="393" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+HE;mso-bidi-language:HE">Adds the constants 2 and 3 and puts the result in </span><span style="font-size:11.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+HE;mso-bidi-language:HE" class="code">R0</span><span style="font-size:12.0pt;
+font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:HE">.</span>
+    </td>
+    <td width="124" valign="top" align="left" height="36">
+    </td>
+  </tr>
+  <tr>
+    <td width="77" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><a href="max/Max.asm"><font face="Courier New" size="2">Max.asm</font></a>
+    </td>
+    <td width="393" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0">Computes <span style="font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">max(R0,R1)</span>
+    and puts the result in R2.
+    </td>
+    <td width="124" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><a href="max/MaxL.asm" target="_self">MaxL.asm</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="77" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><a href="rect/Rect.asm" target="_self"><font face="Courier New" size="2">Rect.asm</font></a>
+    </td>
+    <td width="393" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><span style="font-size:12.0pt;font-family:
+&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:HE;mso-bidi-language:HE">Draws a rectangle at the top
+    left corner of the screen.<span style="mso-spacerun:
+yes">&nbsp; </span>The rectangle is 16 pixels wide and </span><span style="font-size:11.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:HE" class="code">R0</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:
+HE"> pixels high.</span>
+    </td>
+    <td width="124" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><a href="rect/RectL.asm" target="_self"><font face="Courier New" size="2">RectL.asm</font></a>
+    </td>
+  </tr>
+  <tr>
+    <td width="77" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><a href="pong/Pong.asm" target="_self"><font face="Courier New" size="2">Pong.asm</font></a>
+    </td>
+    <td width="393" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+HE;mso-bidi-language:HE">A single-player ping-pong game. A ball bounces
+    constantly off the screen's “walls.”&nbsp; The player attempts to hit
+    the ball with a bat by pressing the left and right arrow keys. For every
+    successful hit, the player gains one point and the bat shrinks a little to
+    make the game harder. If the player misses the ball, the game is over. To
+    quit the game, press </span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+HE;mso-bidi-language:HE" class="code">ESC</span><span style="font-size:12.0pt;
+font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:HE">.</span>
+    </td>
+    <td width="124" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><a href="pong/PongL.asm" target="_self"><font face="Courier New" size="2">PongL.asm</font></a>
+    </td>
+  </tr>
+</table>
+
+<p class="MsoBodyText" style="text-align:justify;mso-outline-level:1"> The <i>Pong</i>
+program was written in the <i>Jack</i> programming language (Chapter 9) and
+translated into the supplied assembly program by the <i>Jack compiler</i>
+(Chapters 10-11). Although the original Jack program is only about 300 lines of
+code, the executable Pong application is about 20,000 lines of binary code, most
+of which being the Jack operating system (Chapter 12). Running this interactive
+program in the CPU emulator is a slow affair, so don't expect a high-powered
+Pong game. This slowness is actually a virtue, since it enables your eye to
+track the graphical behavior of the program. In future projects in the book this
+game will run much faster.
+</p>
+<p class="MsoBodyText" dir="LTR" style="text-align:justify;mso-outline-level:1"><strong><font color="#004080" face="Arial" size="3">Steps</font></strong></p>
+<p class="MsoBodyText" style="margin-top:3.0pt;margin-right:2.85pt;margin-bottom:
+0cm;margin-left:18.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l64 level1 lfo58;tab-stops:list 18.0pt"><span style="mso-fareast-language: EN-US; layout-grid-mode: line"><span style="mso-fareast-language:EN-US;layout-grid-mode:
+line">Create a directory named </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">projects/06</span>
+<span style="mso-fareast-language:EN-US;layout-grid-mode: 
+line">on your computer and extract <a href="project%2006.zip">project 06.zip</a>
+to it (</span></span><span style="mso-fareast-language:EN-US;layout-grid-mode:
+line">preserving the directory structure embedded in the zip file</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">).</span><span style="font-size:12.0pt;mso-fareast-language:EN-US"></o:p>
+</span></p>
+<p class="MsoBodyText" dir="LTR" style="text-align: justify"><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">Write
+and test your assembler program in the two stages described above. You may use
+the assembler supplied with the book to compare the output of your assembler to
+the correct output. This testing procedure is described next. For more
+information about the supplied assembler, refer to the <i>Assembler Tutorial</i><o:p>
+in the <i>Tools</i> section.</o:p>
+</span></p>
+<p class="MsoBodyText" dir="LTR" style="text-align:justify;mso-outline-level:1"><strong><font color="#004080" face="Arial" size="3">Tools</font></strong></p>
+<p class="MsoBodyText"><b><span style="font-size:12.0pt">The supplied assembler:
+</span></b><span style="font-size:12.0pt">The practice of using the supplied
+assembler (which is guaranteed to produce correct binary code) to test another assembler (which
+is not necessarily correct) is illustrated
+</span><span style="font-size: 12.0pt">in the following screen shot and
+explanation.</span></p>
+<p class="MsoBodyText"><img border="0" src="fig%206.3.gif" width="880" height="636"></p>
+<p class="MsoBodyText"><span style="font-size:12.0pt"><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">Let
+</span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Prog.asm</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+be some program written in Hack assembly. Suppose that we translate this program
+using the supplied assembler, producing a binary file called </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Prog.hack</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">.
+Next, we use another assembler (e.g. the one that you wrote) to translate the
+same program into another file, say </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Prog1.hack</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">.
+Now, if the latter assembler is working correctly, it follows that </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Prog.hack</span><span style="font-size:12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;" class="code"> = </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Prog1.hack</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">.
+Thus, one way to test a newly written assembler is to load </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Prog.asm</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+into the supplied assembler program, load </span><span style="font-size:10.0pt;mso-bidi-font-size:13.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Prog1.hack</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+as a compare file, and then translate and compare the two binary files<span style="mso-spacerun: yes">&nbsp;
+</span>(see Figure 6.3). If the comparison fails, the assembler that produced </span><span style="font-size:
+10.0pt;mso-bidi-font-size:13.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;" class="code">Prog1.hack</span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line"> must be buggy;<span style="mso-spacerun: yes">&nbsp;
+</span>otherwise, it may be OK.<o:p>
+</o:p>
+</span></span><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:424.5pt;
+ height:304.5pt'>
+ <v:imagedata src="file:///C:/DOCUME~1/shimon/LOCALS~1/Temp/msoclip1/01/clip_image001.png"
+  o:title="" croptop="6484f" cropbottom="2557f" cropleft="3563f" cropright="2908f"/>
+</v:shape><![endif]-->
+</p>
+<p class="MsoBodyText"><span style="font-size:12.0pt"><o:p>
+</o:p>
+</span></p>
+
+</BODY></HTML>

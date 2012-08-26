@@ -1,0 +1,18 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/01/And.hdl
+
+/**
+ * And gate: out = a and b.
+ */
+
+CHIP And {
+
+    IN  a, b;
+    OUT out;
+
+    PARTS:
+    Nand(a=a, b=b, out=t1);
+    Not(in=t1, out=out);
+}

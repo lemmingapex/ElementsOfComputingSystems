@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1255">
+<META content="Microsoft FrontPage 4.0" name=GENERATOR>
+<base target="_blank">
+</HEAD>
+<BODY>
+<p>
+<font color="#004080"><i>The Elements of Computing&nbsp; Systems </i>/ <i>Nisan
+&amp; Schocken</i></font><span style="color:#004080;
+mso-fareast-language:EN-US"><i> </i>/ www.idc.ac.il/tecs</span><font color="#004080"><i>&nbsp;
+</i> </font><font color="#004080" face="Arial"><strong><br>
+<br>
+<font size="5">Project 9: </font></strong><font size="5"><strong>High Level
+Programming</strong></font></font></p>
+<p><b>Objective:</b>
+ Practice high level programming in the Jack language.&nbsp; Jack is a
+simple, modern, object-based programming language.&nbsp; In
+the next project we will build a compiler for it.&nbsp; Before we do so, it helps getting acquainted with the language by writing some programs in it.</p>
+<p><b>Contract:</b>    <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:HE;layout-grid-mode:line">A</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:
+HE">dopt or invent an application idea like a simple computer game or some
+other interactive program.<span style="mso-spacerun: yes">&nbsp; </span>Then
+design and build the application.</span></p>
+<p><b><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">Resources</span></b><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">:
+You will need several <a href="http://www1.idc.ac.il/tecs/software.html" target="_self">tools</a>: the <i>Jack
+Compiler </i>or the <i>Jack IDE</i>, to translate your program
+into a set of </span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.vm</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+files, the <i>VM Emulator</i>, to run and test your program, </span>and the <span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line"><i>Jack
+Operating System</i></span> (OS). To help you get started, we provide a sample
+Jack program, stored in&nbsp; <span style="mso-fareast-language:EN-US;layout-grid-mode: 
+line"><a href="project%2009.zip">project 09.zip</a><span style="mso-fareast-language:EN-US;layout-grid-mode:
+line">. Start by creating a directory named </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">projects/09</span>
+<span style="mso-fareast-language:EN-US;layout-grid-mode: 
+line">on your computer, and extract this zip file into it (</span><span style="mso-fareast-language:EN-US;layout-grid-mode:
+line">preserving the directory structure embedded in the zip file</span>).</span></p>
+<p class="MsoNormal" style="text-align:left;direction:ltr;unicode-bidi:embed"><strong><font face="Arial" color="#004080" size="3">The&nbsp;
+Jack OS</font></strong></p>
+<p class="MsoNormal" style="text-align: justify; text-indent: 0; mso-list: l111 level1 lfo105; tab-stops: list 18.0pt; direction: ltr; unicode-bidi: embed; margin: 0">The
+executable Jack Operating System is a set of <span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.vm</span><span style="mso-fareast-language:EN-US;layout-grid-mode:line">
+ files that implement the standard library of
+the Jack programming language specified in Chapter 9.&nbsp; In order for any Jack program to execute
+properly, the compiled </span><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.vm</span><span style="mso-fareast-language:EN-US;layout-grid-mode:line">
+files of the program must reside in </span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">a
+directory that also contains all the </span><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.vm</span><span style="mso-fareast-language:EN-US;layout-grid-mode:line">
+files</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">
+of the Jack OS.&nbsp;&nbsp;Here is a list of the </span><span style="font-size: 12.0pt; mso-fareast-language: EN-US; layout-grid-mode: line"><a href="OSerrors.txt" target="_self">Jack
+OS Error Codes</a><span style="mso-fareast-language: EN-US; layout-grid-mode: line; font-size: 12.0pt">
+a</span></span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">nd
+their textual meaning.</span></p>
+<p class="MsoNormal" style="text-align:left;direction:ltr;unicode-bidi:embed"><strong><font face="Arial" color="#004080" size="3">Compiling
+and Running a Jack Program</font></strong></p>
+<p class="MsoNormal" style="margin-top:6.0pt;margin-right:2.8pt;margin-bottom:
+0cm;margin-left:18.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l111 level1 lfo105;tab-stops:list 18.0pt;direction:ltr;
+unicode-bidi:embed">0.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="mso-fareast-language:EN-US;layout-grid-mode:line">It is best
+to store all the class files associated with a Jack
+program in a single directory, say </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">Xxx</span><span style="mso-fareast-language:EN-US;layout-grid-mode:line">.&nbsp;
+Start by creating this directory, then copy all the files from </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">tools/OS</span><span style="mso-fareast-language:EN-US;layout-grid-mode:line">
+into it.&nbsp; </span></p>
+<p class="MsoNormal" style="margin-top:3.0pt;margin-right:2.85pt;margin-bottom:
+0cm;margin-left:18.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l111 level1 lfo105;tab-stops:list 18.0pt;direction:ltr;
+unicode-bidi:embed">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">
+Write your program -- a set of one or more Jack classes -- each stored in a
+separate </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">ClassName.jack</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">
+text file. Put all these </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">.jack</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">
+files in the </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">Xxx</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line">
+directory.</span><span style="font:7.0pt &quot;Times New Roman&quot;"><o:p>
+</o:p>
+</span></p>
+<p class="MsoNormal" style="margin-top:3.0pt;margin-right:2.85pt;margin-bottom:
+0cm;margin-left:18.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l111 level1 lfo105;tab-stops:list 18.0pt;direction:ltr;
+unicode-bidi:embed">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Compile your program using the supplied Jack Compiler (or the Jack IDE). This is best done
+by applying the compiler to the name of the program directory (<span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">Xxx</span>).
+This will cause the compiler to translate all the <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.jack</span>
+classes found in the directory into corresponding <span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.vm</span>
+files. If a compilation error is reported, debug the relevant class file and re-compile <span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">Xxx</span>
+until no error messages are issued.</p>
+<p class="MsoNormal" style="margin-top:3.0pt;margin-right:2.85pt;margin-bottom:
+0cm;margin-left:18.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:
+-18.0pt;mso-list:l111 level1 lfo105;tab-stops:list 18.0pt;direction:ltr;
+unicode-bidi:embed">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>At this point the <span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">Xxx</span>
+directory should contain three sets of files: your source <span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.jack</span>
+files, the <span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.vm</span>
+ files that the compiler generated from them, and the <span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.vm</span>
+ files comprising the Jack OS. To test your program, load the entire <span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">Xxx</span>
+ directory into the<i> VM Emulator</i> and, then run the program. In case of run-time errors or undesired
+program behavior, fix the program and go to stage 2.</p>
+<p class="MsoNormal" style="text-align:left;direction:ltr;unicode-bidi:embed"><strong><font face="Arial" color="#004080" size="3">A
+Sample Jack Program: Square Dance&nbsp;</font></strong></p>
+
+<table border="1" width="721" cellspacing="4" cellpadding="4" bordercolor="#EFCA85">
+  <tr>
+    <td width="275" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><b>Description</b>: This simple interactive
+    program allows the user to move a square around the
+    screen:&nbsp;<p style="line-height: 100%; margin-top: 8; margin-bottom: 0"><img border="0" src="Square.jpg" width="279" height="116"><p style="line-height: 100%; margin-top: 8; margin-bottom: 0">&nbsp;The user
+can&nbsp; also change the square size during the movement.<p style="line-height: 100%; margin-top: 8; margin-bottom: 0">&nbsp;
+    </td>
+    <td width="425" valign="top" align="left" height="36">
+
+<p> When the program starts
+running, a square of size 30 by 30 pixels is placed at the top left corner of the screen.&nbsp;
+The program then listens, and responds to, the following keyboard keys: </p>
+
+<ul>
+  <li><b>right arrow:&nbsp;&nbsp;&nbsp;</b> move the square to the right;</li>
+  <li><b>left arrow:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b>move the square to the left;</li>
+  <li><b>up arrow:&nbsp;&nbsp;&nbsp;</b>&nbsp;&nbsp;&nbsp;&nbsp; move the square up;</li>
+  <li><b>down arrow:&nbsp;&nbsp; </b>move the square down;</li>
+  <li><b>x:&nbsp;&nbsp;&nbsp;</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    increment the square size by 2 pixels;</li>
+  <li><b>z:&nbsp;&nbsp;&nbsp;</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    decrement the square size by 2 pixels;</li>
+  <li><b>q:&nbsp;&nbsp;&nbsp;</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    quit the program.</li>
+</ul>
+
+<p><b>Movement speed:</b> to control it, you can change the delay constant in the <b>moveSquare</b>
+method in class <b>SquareGame</b>. </p>
+
+    </td>
+  </tr>
+</table>
+
+<p>Here is the source code of the Square Dance program (also available in <span style="mso-fareast-language:EN-US;layout-grid-mode: 
+line">project 09.zip)</span>: </p>
+
+<table border="1" width="713" cellspacing="4" cellpadding="4" bordercolor="#EFCA85">
+  <tr>
+    <td width="124" valign="top" align="left" height="10" bgcolor="#F1DCA9"><font face="Times New Roman" color="#00007D" size="2"><b>Class</b></font></td>
+    <td width="568" valign="top" align="left" height="10" bgcolor="#F1DCA9"><font face="Times New Roman" color="#00007D" size="2"><b>Description</b></font></td>
+  </tr>
+  <tr>
+    <td width="124" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="Square/Main.jack" target="_self"><font face="Courier New" size="2">Main.Jack</font></a>
+    </td>
+    <td width="568" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">
+      Initializes and starts a new &quot;square moving session.&quot;
+    </td>
+  </tr>
+  <tr>
+    <td width="124" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="Square/Square.jack" target="_self"><font face="Courier New" size="2">Square.jack</font></a>
+    </td>
+    <td width="568" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">Implements an animated square. A square object has
+    properties that characterizes its size and screen<span style="mso-spacerun: yes">
+      </span>location, and methods for drawing, erasing,
+      moving, and size changing<span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line"></o:p>.
+    </span>
+    </td>
+  </tr>
+  <tr>
+    <td width="124" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="Square/SquareGame.jack" target="_self"><font face="Courier New" size="2">SquareGame.jack</font></a>
+    </td>
+    <td width="568" valign="top" align="left" height="36">
+    <p style="line-height: 100%; margin-top: 0; margin-bottom: 0">
+      Runs the program according to the game rules.<span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line"></o:p>
+    </span>
+    </td>
+  </tr>
+</table>
+
+<p style="margin-top: 3">&nbsp;</p>
+
+<p style="margin-top: 3">&nbsp;</p>
+
+</BODY></HTML>

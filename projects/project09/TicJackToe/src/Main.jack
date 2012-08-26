@@ -1,0 +1,16 @@
+/**
+ * The Main class initializes a new TicJackToe game and starts it.
+ */
+class Main {
+
+	/** Initializes a new game and starts it. */	
+	function void main() {
+		var TicJackToe game;
+
+		let game = TicJackToe.new();
+		do game.run();
+		do game.dispose();
+
+		return;
+	}
+}

@@ -1,0 +1,12 @@
+/**
+ * The Main class for 'Hello World' jack program
+ */
+class Main {
+    function void main() {
+        do Output.printString("This is the greatest program...");
+	do Output.println();
+	do Output.printString("   in the world.");
+	do Output.println();
+        return;
+    }
+}

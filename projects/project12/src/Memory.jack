@@ -1,0 +1,88 @@
+// This file is part of the materials accompanying the book 
+// "The Elements of Computing Systems" by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/12/Memory.jack
+
+/**
+ * Memory operations library.
+ */ 
+class Memory {
+
+	static Array freeList;
+
+	static int lengthIndex;
+	static int nextIndex;
+
+	static int heapBase;
+
+	/** Initializes memory parameters. */
+	function void init() {
+		var Array nextBlock;
+		let lengthIndex = 0;
+		let nextIndex = 1;
+
+		let heapBase = 2048;
+		let freeList = heapBase;
+		let freeList[lengthIndex] = 2;
+		let freeList[nextIndex] = heapBase+2;
+
+		let nextBlock = freeList[nextIndex];
+		let nextBlock[lengthIndex] = 16382;
+		let nextBlock[nextIndex] = null;
+		return;
+	}
+
+	/** Returns the value of the main memory at this address. */
+	function int peek(int address) {
+		var Array ram;
+		let ram = 0;
+		return ram[address];
+	}
+
+	/** Sets the value of the main memory at this address
+	 *  to the given value. */
+	function void poke(int address, int value) {
+		var Array ram;
+		let ram = 0;
+		let ram[address] = value;
+		return;
+	}
+
+	/** finds and allocates from the heap a memory block of the 
+	 *  specified size and returns a reference to its base address. */
+	function int alloc(int size) {
+		var Array block;
+		var Array prev;
+		var Array next;
+
+		let block = freeList;
+		while(~(block[lengthIndex] > size)) {
+			let prev = block;
+			let block = block[nextIndex];
+		}
+
+		let next = block+size+1;
+		let next[lengthIndex] = block[lengthIndex] - (size+1);
+		let next[nextIndex] = block[nextIndex];
+		let prev[nextIndex] = next;
+		
+		let block[lengthIndex] = size+1;
+		return block+1;
+	}
+
+	/** De-allocates the given object and frees its space. */
+	function void deAlloc(int object) {
+		var Array temp;
+		var Array deAllocated;
+		let temp = freeList;
+
+		let deAllocated = object - 1;
+		let deAllocated[nextIndex] = null;
+
+		while(~(temp[nextIndex] = null)) {
+			let temp = temp[nextIndex];
+		}
+		let temp[nextIndex] = deAllocated;
+		return;
+	}	
+}
