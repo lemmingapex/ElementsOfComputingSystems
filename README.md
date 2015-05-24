@@ -2,6 +2,8 @@
 
 Building a Modern Computer from First Principles
 
+[Navigate this repo here](http://lemmingapex.github.io/ElementsOfComputingSystems/)
+
 Project 00 - Getting Started  
 Project 01 - Boolean Logic  
 Project 02 - Boolean Arithmetic  
