@@ -1,0 +1,10 @@
+body {
+	font-family: arial;
+}
+
+td {
+	padding: 6px;
+}
+
+tr:nth-child(even) {background: #bbbbff}
+tr:nth-child(odd) {background: #ffffff}

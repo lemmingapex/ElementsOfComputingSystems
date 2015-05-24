@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0048)http://www1.idc.ac.il/tecs/projects/12/index.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<meta content="Microsoft FrontPage 4.0" name="GENERATOR"></head>
+<body>
+<p><font color="#004080"><i>The Elements of Computing&nbsp; Systems </i>/ <i>Nisan
+&amp; Schocken</i></font><span style="color:#004080;
+mso-fareast-language:EN-US"><i> </i>/ www.idc.ac.il/tecs</span><font color="#004080"><i>&nbsp;&nbsp;
+</i> </font><font color="#004080" face="Arial"><strong><br>
+<br>
+<font size="5">Project 12: </font></strong><font size="5"><strong>The Operating
+System</strong></font></font></p>
+<p style="line-height: 100%; margin-top: 12; margin-bottom: 0"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:HE;layout-grid-mode:line"><b>Objective:</b>   Implement
+the Jack OS described in Chapter 12.  </span><span style="font-size: 12.0pt; font-family: Times New Roman; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: HE; layout-grid-mode: line">The
+OS is a collection of 8 classes.&nbsp; </span><span style="font-size:12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;" class="code">Each class can be
+implemented and unit-tested in isolation, and in any particular order.</span></p>
+<p style="line-height: 100%; margin-top: 12; margin-bottom: 0"><b><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">Resources:
+</span></b><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">The
+main tool needed is Jack -- the language in which you
+will develop the OS. Therefore, you will also need the supplied <i>Jack compiler
+</i>or <i>Jack IDE</i>,
+to compile your OS implementation as well as the supplied test programs. In
+order to facilitate gradual unit-testing of the OS, you will also need the complete <i>executable
+OS</i>, consisting of a collection of </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.vm</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+files (one for each OS class). Finally, you will need the supplied <i>VM Emulator</i>. This program will be used as the platform on which the actual tests
+take place.<o:p>
+</o:p>
+</span></p>
+<p style="line-height: 100%; margin-top: 12; margin-bottom: 0"><b><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">Contract:</span></b><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+ Write a Jack OS implementation and test it using the programs and testing
+scenarios described below. Each test program uses a certain subset of OS
+services.<o:p>
+</o:p>
+<o:p>
+</o:p>
+ </span><span style="font-size:12.0pt;
+mso-fareast-language:EN-US;layout-grid-mode:line">&nbsp;</span></p>
+<p class="MsoBodyText" style="text-align: justify; line-height: 100%; margin-top: 12; margin-bottom: 0"><font face="Arial" color="#004080" size="3"><strong>Testing
+Strategy</strong></font></p>
+<p class="MsoBodyText" style="text-align:justify"><span style="font-size:12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;" class="code">We suggest developing and unit-testing
+each OS class in isolation. This can be done by compiling the OS class that you
+write and then putting the resulting </span><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;" class="code">.vm</span><span style="font-size:
+12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;" class="code">
+file in a directory that contains the supplied </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.vm</span><span style="font-size:12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;" class="code"> files of the rest of the OS. In
+particular, it is recommended to use the routine described below.</span><span style="font-size:12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;" class="code">&nbsp;<o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="text-align:justify"><span style="mso-fareast-language: EN-US; layout-grid-mode: line"><span style="mso-fareast-language:EN-US;layout-grid-mode:
+line">Start by creating a directory named </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">projects/12</span>
+<span style="mso-fareast-language:EN-US;layout-grid-mode:
+line">on your computer and extracting <a href="http://www1.idc.ac.il/tecs/projects/12/project%2012.zip">project 12.zip</a>
+to it (</span><span style="mso-fareast-language:EN-US;layout-grid-mode:
+line">preserving the directory structure embedded in the zip file</span>).</span></p>
+<p class="MsoBodyText" style="text-align:justify"><span style="font-size:12.0pt;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;" class="code">To develop, compile, and test, each </span><span style="font-size:12.0pt">OS
+class </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Xxx.jack</span><span style="font-size:12.0pt">
+in isolation:<o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="margin-top:6.0pt;margin-right:36.0pt;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;mso-list:l67 level1 lfo155;
+mso-list-change:&quot;%1\:1\:0\:\.&quot; \05D0\05D3\05E8\05D9 20030731T1723;tab-stops:
+list 36.0pt"><span style="font-size:12.0pt">1.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Put, in the same directory, the following items: the OS class </span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Xxx.jack</span><span style="font-size:12.0pt">
+that you are developing, all the supplied executable OS </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.vm</span><span style="font-size:12.0pt">
+files, and the relevant test program (a collection of one or more </span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.jack</span><span style="font-size:12.0pt">
+files); <o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="margin-top:6.0pt;margin-right:36.0pt;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;mso-list:l67 level1 lfo155;
+mso-list-change:&quot;%1\:2\:0\:\.&quot; \05D0\05D3\05E8\05D9 20030731T1723;tab-stops:
+list 36.0pt"><span style="font-size:12.0pt">2.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Compile the directory using the supplied Jack compiler or Jack IDE. This will result
+in compiling your </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Xxx.jack</span><span style="font-size:12.0pt">
+OS class as well as the class files of the test program. In the process, a new </span><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;" class="code">Xxx.vm</span><span style="font-size:12.0pt">
+file will be created, replacing the originally supplied OS class. That�s
+exactly what we want the directory to contain: the executable test program,
+the complete executable OS minus the original </span><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;" class="code">Xxx.vm</span><span style="font-size:12.0pt">, plus your version of </span><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;" class="code">Xxx.vm</span><span style="font-size:12.0pt">.<o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="margin-top:6.0pt;margin-right:36.0pt;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;mso-list:l67 level1 lfo155;
+mso-list-change:&quot;%1\:3\:0\:\.&quot; \05D0\05D3\05E8\05D9 20030731T1723;tab-stops:
+list 36.0pt"><span style="font-size:12.0pt">3.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Load the directory�s code (OS + test program) into the VM Emulator;<o:p>
+</o:p>
+</span></p>
+<p class="MsoBodyText" style="margin-top:6.0pt;margin-right:36.0pt;margin-bottom:
+0cm;margin-left:36.0pt;margin-bottom:.0001pt;text-indent:-18.0pt;mso-list:l67 level1 lfo155;
+mso-list-change:&quot;%1\:4\:0\:\.&quot; \05D0\05D3\05E8\05D9 20030731T1723;tab-stops:
+list 36.0pt"><span style="font-size:12.0pt">4.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Execute the code and check if the OS services are working properly
+according to the guidelines given below for each OS class.<o:p>
+</o:p>
+</span></p>
+<p><font face="Arial" color="#004080" size="3"><strong>OS Classes and Test
+Programs</strong></font></p>
+<p><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">There
+are eight OS classes: </span><font face="Courier New" size="2"><span style="mso-fareast-language: EN-US; layout-grid-mode: line">Memory</span></font><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">,
+</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line"><font face="Courier New" size="2">Array</font></span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">,
+</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line"><font face="Courier New" size="2">Math</font></span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">,
+</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line"><font face="Courier New" size="2">String</font></span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">,
+</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line"><font face="Courier New" size="2">Screen</font></span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">,
+</span><span style="mso-fareast-language: EN-US; layout-grid-mode: line"><font face="Courier New" size="2">Keyboard</font></span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">,
+and </span><span style="mso-fareast-language: EN-US; layout-grid-mode: line"><font face="Courier New" size="2">Sys</font></span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">.
+For each OS class </span><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Xxx</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+we supply a skeletal </span><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Xxx.jack</span><span style="font-size:12.0pt;mso-fareast-language:EN-US;layout-grid-mode:line">
+class file with all the required subroutine signatures, </span><span style="font-size: 12.0pt">a
+corresponding test class named </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">Main.jack</span><span style="font-size: 12.0pt">,
+and related test scripts.</span>&nbsp;</p>
+
+<table border="1" width="608" cellspacing="4" cellpadding="4" bordercolor="#EFCA85">
+  <tbody><tr>
+    <td width="216" valign="top" align="left" height="36" bgcolor="#F1DCA9">
+      <p><b>OS module</b>
+    </p></td>
+    <td width="817" valign="top" align="left" height="36" bgcolor="#F1DCA9">
+      <p><b>Comments</b>
+    </p></td>
+  </tr>
+  <tr>
+    <td width="216" valign="top" align="left" height="36">
+      <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><b><a href="http://www1.idc.ac.il/tecs/projects/12/Memory.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code"><font color="#800000">Memory.jack</font></span></a>&nbsp;</b>
+      <font size="2">(OS class)</font></p><p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/MemoryTest/Main.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">Main.jack</span></a><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">
+      </span><font size="2">(test class)</font></p><p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code"><a href="http://www1.idc.ac.il/tecs/projects/12/MemoryTest/MemoryTest.tst">MemoryTest.tst</a></span></p><p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code"><a href="http://www1.idc.ac.il/tecs/projects/12/MemoryTest/MemoryTest.cmp">MemoryTest.cmp</a></span>
+    </p></td>
+    <td width="817" valign="top" align="left" height="36">
+      <p class="MsoNormal" style="direction: ltr; unicode-bidi: embed" align="left">To
+      test your implementation of this OS class, compile the directory, execute
+      the test script on the VM Emulator, and make sure that the comparison with
+      the compare file ends successfully.<o:p>
+      </o:p>
+    </p></td>
+  </tr>
+  <tr>
+    <td width="216" valign="top" align="left" height="36">
+      <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/Array.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code"><b><font color="#800000">Array.jack</font></b></span></a><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">&nbsp;</span>&nbsp;
+      </p><p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/ArrayTest/Main.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">Main.jack</span></a></p><p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code"><a href="http://www1.idc.ac.il/tecs/projects/12/ArrayTest/ArrayTest.tst">ArrayTest.tst</a></span></p><p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code"><a href="http://www1.idc.ac.il/tecs/projects/12/ArrayTest/ArrayTest.cmp">ArrayTest.cmp</a></span>
+    </p></td>
+    <td width="817" valign="top" align="left" height="36">
+      <p class="MsoNormal" style="text-align:justify;direction:ltr;unicode-bidi:embed">Ditto.
+      <o:p>
+      </o:p>
+    </p></td>
+  </tr>
+  <tr>
+    <td width="216" valign="top" align="left" height="36">
+      <p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/Math.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code"><b><font color="#800000">Math.jack</font></b></span></a>
+      </p><p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/MathTest/Main.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">Main.jack</span></a><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">
+      <a href="http://www1.idc.ac.il/tecs/projects/12/MathTest/MathTest.tst">MathTest.tst</a></span></p><p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code"><a href="http://www1.idc.ac.il/tecs/projects/12/MathTest/MathTest.cmp">MathTest.cmp</a></span>
+    </p></td>
+    <td width="817" valign="top" align="left" height="36">
+      <p class="MsoNormal" style="text-align:justify;direction:ltr;unicode-bidi:embed">Ditto.
+      <o:p>
+      </o:p>
+    </p></td>
+  </tr>
+</tbody></table>
+
+<p class="MsoNormal" style="text-align:justify;direction:ltr;unicode-bidi:embed">The test programs supplied above don�t provide a full test of the <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Memory.alloc</span>
+and <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Memory.deAlloc</span>
+functions. A complete test of these memory management functions requires
+inspecting internal implementation details not visible in user-level testing.
+Thus it is recommended to test these two functions using step-by-step debugging
+in the VM Emulator.&nbsp;<o:p>
+</o:p>
+</p>
+<p style="line-height: 100%; margin-top: 0; margin-bottom: 0"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:HE;mso-bidi-language:
+HE">The remaining test programs in this project do not include test scripts.
+They should be compiled and executed on the VM Emulator as follows.</span>
+</p><p style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+
+<table border="1" width="648" cellspacing="4" cellpadding="4" bordercolor="#EFCA85">
+  <tbody><tr>
+    <td width="421" valign="top" align="left" height="36" bgcolor="#F1DCA9">
+      <p><b>OS module</b>
+    </p></td>
+    <td width="652" valign="top" align="left" height="36" bgcolor="#F1DCA9">
+      <p><b>Desired Test Results (Actual Screen Shots)</b>
+    </p></td>
+  </tr>
+  <tr>
+    <td width="421" valign="top" align="left" height="36">
+      <p style="line-height: 100%; margin-top: 2; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/String.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code"><b><font color="#800000">String.jack</font></b></span></a><font size="2">&nbsp;
+      (OS class)</font></p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/StringTest/Main.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">Main.jack</span></a><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">
+      </span><font size="2">(test class)</font>
+      </p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0">&nbsp;
+      </p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0">Execution of
+      the test program should yield this output:
+    </p></td>
+    <td width="652" valign="top" align="left" height="36">
+      <p class="MsoNormal" style="direction: ltr; unicode-bidi: embed; word-spacing: 0; line-height: 100%; margin-right: 2.8pt; margin-top: 3; margin-bottom: 0" align="center"><img border="0" src="./12-1.gif" width="366" height="197">
+    </p></td>
+  </tr>
+  <tr>
+    <td width="421" valign="top" align="left" height="36">
+      <p style="line-height: 100%; margin-top: 2; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/Output.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code"><b><font color="#800000">Output.jack</font></b></span></a><font size="2">&nbsp;&nbsp;</font></p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/OutputTest/Main.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">Main.jack</span></a><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">&nbsp;</span></p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0">&nbsp;</p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0">&nbsp;
+    </p></td>
+    <td width="652" valign="top" align="left" height="36">
+      <p align="center"><img border="0" src="./12-2.gif" width="366" height="193">
+    </p></td>
+  </tr>
+  <tr>
+    <td width="421" valign="top" align="left" height="36">
+      <p style="line-height: 100%; margin-top: 2; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/Screen.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code"><b><font color="#800000">Screen.jack</font></b></span></a><font size="2">&nbsp;&nbsp;</font></p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/ScreenTest/Main.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">Main.jack</span></a><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">&nbsp;</span></p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0">&nbsp;</p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0">&nbsp;
+      </p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0">&nbsp;
+    </p></td>
+    <td width="652" valign="top" align="left" height="36">
+      <p align="center"><img border="0" src="./12-3.gif" width="366" height="193">
+    </p></td>
+  </tr>
+  <tr>
+    <td width="421" valign="top" align="left" height="36">
+      <p style="line-height: 100%; margin-top: 2; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/Keyboard.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code"><b><font color="#800000">Keyboard.jack</font></b></span></a><font size="2">&nbsp;&nbsp;</font></p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/KeyboardTest/Main.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">Main.jack</span></a><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">&nbsp;</span></p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0">&nbsp;</p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0">&nbsp;
+    </p></td>
+    <td width="652" valign="top" align="left" height="36">
+      This OS class is tested using a test program that effects some
+      user-program interaction. For each function in the <span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;" class="code">Keyboard</span> class (<span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">keyPressed</span>,
+      <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">readChar</span>,
+      <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">readLine</span>,
+      <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">readInt</span>)
+      the program requests the user to press some keyboard keys. If the function
+      is implemented correctly and the requested keys are pressed, the program
+      prints the text �<span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">ok</span>�
+      and proceeds to test the next function. If not, the program repeats the
+      request for the same function. If all requests end successfully, the
+      program prints �<span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Test</span>
+      <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">ended</span>
+      <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">successfully</span>�,
+      at which point the screen may look as follows:
+      <p align="center"><img border="0" src="./12-4.gif" width="366" height="193">
+    </p></td>
+  </tr>
+  <tr>
+    <td width="421" valign="top" align="left" height="36">
+      <p style="line-height: 100%; margin-top: 2; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/Sys.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code"><b><font color="#800000">Sys.jack</font></b></span><font size="2">&nbsp;</font></a><font size="2">&nbsp;</font></p><p style="line-height: 100%; margin-top: 2; margin-bottom: 0"><a href="http://www1.idc.ac.il/tecs/projects/12/SysTest/Main.jack" target="_self"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-fareast-font-family: Times New Roman; mso-bidi-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: HE; mso-bidi-language: HE" class="code">Main.jack</span></a>
+
+    </p></td>
+    <td width="652" valign="top" align="left" height="36">
+      <p class="MsoNormal" style="direction: ltr; unicode-bidi: embed" align="left">Only
+      two functions in this class can be tested: <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Sys.init</span>
+      and <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Sys.wait</span>.
+      The supplied test program tests the <span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;" class="code">Sys.wait</span> function by requesting
+      the user to press any key, waiting two seconds (using <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Sys.wait</span>)
+      and then printing another message on the screen. The time that elapses
+      from the moment the key is released until the next message is printed
+      should be two seconds.&nbsp;<o:p>
+      </o:p>
+      </p>
+      <p class="MsoBodyText" align="left"><span style="font-size:12.0pt">The </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Sys.init</span><span style="font-size:12.0pt">
+      function is not tested explicitly. However, recall that it performs all
+      the necessary OS initializations and then calls the </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Main.main</span><span style="font-size:12.0pt">
+      function of each test program. Therefore, we can assume that nothing would
+      work properly unless </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Sys.init</span><span style="font-size:12.0pt">
+      is implemented correctly. A simple way to test </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Sys.init</span><span style="font-size:12.0pt">
+      in isolation is to run <i>Pong</i> using your </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">Sys.vm</span><span style="font-size:12.0pt">
+      file.<o:p>
+      </o:p>
+      </span>
+    </p></td>
+  </tr>
+</tbody></table>
+
+<p class="MsoBodyText" dir="LTR" style="text-align: justify; line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p class="MsoBodyText" dir="LTR" style="text-align: justify; line-height: 100%; margin-top: 0; margin-bottom: 0"><b><span style="font-size:12.0pt">Complete
+test:</span></b><span style="font-size:12.0pt"> After testing successfully each
+OS class in isolation, test your entire OS implementation using the <i>Pong </i>game,
+whose source code is available in </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">projects/11/Pong</span><span style="font-size:12.0pt">.&nbsp;
+Put all your OS </span><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;" class="code">.jack</span><span style="font-size:12.0pt">
+files in the </span><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman" class="code">Pong</span><span style="font-size:12.0pt">
+directory, compile the directory, and execute the game in the VM Emulator. If
+the game works, then congratulations: you are the proud owner of an operating
+system written entirely by you.</span></p>
+<p class="MsoBodyText" dir="LTR" style="text-align: justify; line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+
+
+</body></html>
